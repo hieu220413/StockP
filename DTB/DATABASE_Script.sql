@@ -4,8 +4,11 @@ CREATE DATABASE ASSIGNMENT_PRJ301
 GO
 USE ASSIGNMENT_PRJ301
 GO
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 CREATE TABLE category(
 	category_id varchar(3) primary key NOT NULL,
 	name varchar(100) NOT NULL

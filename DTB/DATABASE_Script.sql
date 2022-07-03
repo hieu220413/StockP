@@ -4,11 +4,20 @@ CREATE DATABASE ASSIGNMENT_PRJ301
 GO
 USE ASSIGNMENT_PRJ301
 GO
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
+DROP TABLE category
+GO
+DROP TABLE shoes
+GO
+DROP TABLE size
+GO
+DROP TABLE shoes_size
+GO
+DROP TABLE customers
+GO
+DROP TABLE invoice
+GO
+DROP TABLE invoice_detail
+GO
 CREATE TABLE category(
 	category_id varchar(3) primary key NOT NULL,
 	name varchar(100) NOT NULL
@@ -23,7 +32,7 @@ CREATE TABLE shoes(
 	foreign key(category_id) references category(category_id)
 );
 
-CREATE TABLE size_detail(
+CREATE TABLE size(
 	size_id int primary key NOT NULL
 );
 
@@ -31,7 +40,7 @@ CREATE TABLE shoes_size(
 	shoes_id varchar(5),
 	size_id int,
 	foreign key(shoes_id) references shoes(shoes_id),
-	foreign key(size_id) references size_detail(size_id),
+	foreign key(size_id) references size(size_id),
 	constraint pk_sh_si primary key(shoes_id,size_id),
 	amount int
 );
@@ -40,8 +49,8 @@ CREATE TABLE customers(
 	customer_id int identity(1,1) primary key NOT NULL,
 	name nvarchar(100) NOT NULL,
 	username varchar(100) NOT NULL,
-	sex varchar(10) NOT NULL,
-	address nvarchar(100) NOT NULL,
+	gender bit NOT NULL, --0: male, 1:Female
+	address nvarchar(500) NOT NULL,
 	password varchar(100) NOT NULL
 );
 
@@ -62,11 +71,14 @@ CREATE TABLE invoice_detail(
 );
 
 USE ASSIGNMENT_PRJ301
+--insert into table category(category_id varchar(3), name varchar(100))
 INSERT INTO [category] VALUES('BAE','Basketball');
 INSERT INTO [category] VALUES('FTB','Football');
 INSERT INTO [category] VALUES('RUN','Running');
 INSERT INTO [category] VALUES('LIS','Lifestyle');
 
+--insert into table shoes(shoes_id varchar(5) - Basketball:B---- /Football:F---- /Running:R---- /Lifestyle:L----,
+--							 name varchar(100), img varchar(20), price float, category_id varchar(3))
 INSERT INTO [shoes] VALUES('B0001','Nike LeBron Witness 6EP','img1.jpg',255.0,'BAE');
 INSERT INTO [shoes] VALUES('B0002','Nike LeBron 17 Ashes','img2.jpg',184.78,'BAE');
 INSERT INTO [shoes] VALUES('B0003','Nike LeBron 17 Currency','img3.jpg',171.74,'BAE');
@@ -126,11 +138,12 @@ INSERT INTO [shoes] VALUES('L0008','adidas NMD HU Pharrell NERD Chalk White','im
 INSERT INTO [shoes] VALUES('L0009','adidas Ultra Boost DNA LEGO Multi','img54.jpg',89.0,'LIS');
 INSERT INTO [shoes] VALUES('L0010','adidas Yung-1 Cloud White','img55.jpg',84.0,'LIS');
 
-INSERT INTO [size_detail] VALUES(7);
-INSERT INTO [size_detail] VALUES(8);
-INSERT INTO [size_detail] VALUES(9);
-INSERT INTO [size_detail] VALUES(10);
+INSERT INTO [size] VALUES(7);
+INSERT INTO [size] VALUES(8);
+INSERT INTO [size] VALUES(9);
+INSERT INTO [size] VALUES(10);
 
+--insert into table shoes_size(shoes_id varchar(5), size_id int, amount int)
 INSERT INTO [shoes_size] VALUES('B0001',7,10);
 INSERT INTO [shoes_size] VALUES('B0001',8,10);
 INSERT INTO [shoes_size] VALUES('B0001',9,10);

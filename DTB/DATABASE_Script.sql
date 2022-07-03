@@ -8,7 +8,7 @@ DROP TABLE category
 GO
 DROP TABLE shoes
 GO
-DROP TABLE size_detail
+DROP TABLE size
 GO
 DROP TABLE shoes_size
 GO

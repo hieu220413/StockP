@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 manager\InvoiceManager.class
 model\Size.class
 model\InvoiceDetail.class
@@ -5,8 +6,21 @@ model\Customers.class
 controller\ShoesController.class
 manager\ShoesManager.class
 model\Category.class
+=======
+model\Size.class
+model\InvoiceDetail.class
+model\Customers.class
+manager\ShoesManager.class
+>>>>>>> minh
 manager\CustomersManager.class
 model\ShoesSize.class
 model\Invoice.class
 model\Shoes.class
+<<<<<<< HEAD
+=======
+manager\InvoiceManager.class
+controller\ShoesController.class
+model\Category.class
+utils\DBUtil.class
+>>>>>>> minh
 manager\CategoryManager.class

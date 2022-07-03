@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/styleindex.css " rel="stylesheet" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="./js/Jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>PRJ Sneakers Store</title>
+</head>
+
+<body>
+
+    <div class="container-fluid" class="nav" style="width: 100vw;">
+
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            ul {
+                list-style-type: none;
+            }
+            
+            nav {
+                background-color: black;
+            }
+            
+            #main-menu {
+                display: flex;
+            }
+            
+            nav #main-menu li a {
+                color: #fff;
+                text-decoration: none;
+                display: block;
+                padding: 8px 15px;
+            }
+            
+            nav #main-menu li:hover a {
+                background: #c23616;
+                transition: all 0.3s;
+            }
+            
+            #toggle {
+                display: none;
+                background: #353b48;
+                color: #fff;
+                text-align: right;
+                padding: 10px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            
+            @media screen and (max-width: 768px) {
+                #main-menu {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                #toggle {
+                    display: block;
+                }
+                nav {
+                    display: none;
+                }
+            }
+        </style>
+            <script>
+                $(document).ready(function() {
+                    $('#toggle').click(function() {
+                        $('nav').slideToggle();
+                    });
+                })
+            </script>
+            <div id="wrapper">
+                <div id="header">
+                    <div id="toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <nav>
+                        <ul id="main-menu">
+                            <li>
+                                <a href="">BASKETBALL</a>
+                            </li>
+                            <li>
+                                <a href="">FOOTBALL</a>
+                            </li>
+                            <li>
+                                <a href="">SKATEBOARDING</a>
+                            </li>
+                            <li>
+                                <a href="">RUNNING</a>
+                            </li>
+                            <li>
+                                <a href="">LIFESTYLE</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        <div class="row">
+
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./images/slider 1.jpg" class="d-block w-100" alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Spadling VBA</h5>
+                      <p>Bóng thi đấu chuyên dùng dành cho môn bóng rổ chính hãng.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./images/slider 2,3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Tất cả các hãng giày, loại giày</h5>
+                      <p>Đều có mặt tại đây, đáp ứng mọi nhu cầu.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./images/newnenwnennnnenenen.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Mặt hàng mới</h5>
+                      <p>Luôn về tay với mức giá ưu đãi.</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+
+        </div>
+
+    </div>
+
+    <!--Kết thúc container-fluid-->
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <h1> </h1>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-1">
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="text-center">
+                    <a href="https://kicksgeeks.vn/product-category/footwears/">
+                    <img style="width:100%" class="img-responsive" src="images/basketball2.png" />
+                    </a>
+                    <div class="service-item">
+                        <h3 class="sertice-item-titile">BASKETBALL</h3>
+                        <p>Các mẫu giày đẹp bóng rổ</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img style="width:100%" class="img-responsive" src="images/fooball1.jpg" />
+                    <div class="service-item">
+                        <h3 class="sertice-item-titile">FOOTBALL</h3>
+                        <p>Các mẫu giày đẹp bóng đá</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-1">
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img style="width:100%" src="images/runnig.png" class="img-responsive" />
+                    <div class="item">
+                        <div class="service-item">
+                            <h3 class="sertice-item-titile">RUNNING</h3>
+                            <p>Các mẫu giày đẹp chạy bộ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img style="width:100%" src="images/lifestyle.png" class="img-responsive" />
+                    <div class="item">
+                        <div class="service-item">
+                            <h3 class="sertice-item-titile">LIFETSTYLE</h3>
+                            <p>Các mẫu giày đẹp đường phố</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center footer">
+                    <h3 style="font-weight: bold; font-style: normal; color: #95171F;">StockP</h3>
+                    <p>PHONE: 0748523113</p>
+                    <p>Store's address: Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh
+                        700000</p>
+                    <p>Email: StockP@store.fpt.com</p>
+                    <p>Copyrights &copy; by PRJ Class. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

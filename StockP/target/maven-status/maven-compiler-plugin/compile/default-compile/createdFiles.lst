@@ -1,0 +1,12 @@
+manager\InvoiceManager.class
+model\Size.class
+model\InvoiceDetail.class
+model\Customers.class
+controller\ShoesController.class
+manager\ShoesManager.class
+model\Category.class
+manager\CustomersManager.class
+model\ShoesSize.class
+model\Invoice.class
+model\Shoes.class
+manager\CategoryManager.class

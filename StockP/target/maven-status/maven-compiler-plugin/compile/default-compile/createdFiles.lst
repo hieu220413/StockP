@@ -1,0 +1,13 @@
+model\Size.class
+model\InvoiceDetail.class
+model\Customers.class
+manager\ShoesManager.class
+manager\CustomersManager.class
+model\ShoesSize.class
+model\Invoice.class
+model\Shoes.class
+manager\InvoiceManager.class
+controller\ShoesController.class
+model\Category.class
+utils\DBUtil.class
+manager\CategoryManager.class

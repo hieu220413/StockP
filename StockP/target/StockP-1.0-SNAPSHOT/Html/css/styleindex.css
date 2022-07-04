@@ -61,7 +61,7 @@ nav #main-menu li:hover a {
 @media only screen and (max-width: 768px) {
     #main-menu {
         flex-direction: column;
-        text-align: start;
+        text-align: center;
     }
     #main-menu img{
         margin-left: 40px;
@@ -69,9 +69,9 @@ nav #main-menu li:hover a {
     /* #toggle {
         display: block;
     }
-    /* nav {
+    nav {
         display: none;
-    } */ 
+    }  */
 }
 .footer {
     margin-top: 10px;

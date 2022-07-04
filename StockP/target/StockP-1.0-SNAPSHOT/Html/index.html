@@ -20,16 +20,6 @@
 
 <body>
     <div class="container-fluid" class="nav" style="width: 100vw; padding: 0px;">
-        <script>
-            $(document).ready(function () {
-                $('#toggle').click(function () {
-                    $('nav').slideToggle();
-                });
-            })
-        </script>
-        <a href="./index.html">
-            <img style="height: 100px" src="./images/StockP__3_-removebg-preview.png">
-        </a>
         <div id="wrapper">
             <div id="header">
                 <div id="toggle">
@@ -37,14 +27,14 @@
                 </div>
                 <nav>
                     <ul id="main-menu">
+                        <a href="./index.html">
+                            <img style="height: 100px" src="./images/StockP__3_-removebg-preview.png">
+                        </a>
                         <li>
                             <a href="">BASKETBALL</a>
                         </li>
                         <li>
                             <a href="">FOOTBALL</a>
-                        </li>
-                        <li>
-                            <a href="">SKATEBOARDING</a>
                         </li>
                         <li>
                             <a href="">RUNNING</a>
@@ -56,6 +46,13 @@
                 </nav>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                $('#toggle').click(function () {
+                    $('nav').slideToggle();
+                });
+            })
+        </script>
 
         <div class="row">
 

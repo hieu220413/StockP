@@ -28,6 +28,14 @@ li{
     background-color: black;
 }
 
+#header {
+    display: block;
+}
+
+nav{
+    display: block;
+}
+
 nav #main-menu li a {
     color: white;
     text-decoration: none;
@@ -50,20 +58,20 @@ nav #main-menu li:hover a {
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     #main-menu {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
     }
     #main-menu img{
         margin-left: 40px;
     }
-    #toggle {
+    /* #toggle {
         display: block;
     }
-    nav {
+    /* nav {
         display: none;
-    }
+    } */ 
 }
 .footer {
     margin-top: 10px;

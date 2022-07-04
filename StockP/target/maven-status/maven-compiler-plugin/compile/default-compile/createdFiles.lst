@@ -2,6 +2,7 @@ model\Size.class
 model\InvoiceDetail.class
 model\Customers.class
 manager\ShoesManager.class
+config\Config.class
 manager\CustomersManager.class
 model\ShoesSize.class
 model\Invoice.class

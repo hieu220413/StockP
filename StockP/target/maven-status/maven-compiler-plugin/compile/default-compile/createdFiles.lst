@@ -1,4 +1,5 @@
 model\Size.class
+controller\HomeController.class
 model\InvoiceDetail.class
 model\Customers.class
 manager\ShoesManager.class
@@ -11,4 +12,6 @@ manager\InvoiceManager.class
 controller\ShoesController.class
 model\Category.class
 utils\DBUtil.class
+controller\FrontController.class
 manager\CategoryManager.class
+

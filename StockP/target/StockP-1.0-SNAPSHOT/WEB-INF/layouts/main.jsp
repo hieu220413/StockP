@@ -14,9 +14,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="./css/styleindex.css " rel="stylesheet" />
-        <link href="./css/bootstrap.min.css" rel="stylesheet" />
+
+        <link href="<c:url value="/css/styleindex.css"/>" rel="stylesheet" />
+        <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
               integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -43,29 +44,29 @@
                     </div>
                     <nav>
                         <ul id="main-menu">
-                            <a href="<c:url value="/home/index.do">
+                            <a href="<c:url value="/"/>">
                                <img style="height: 100px" src="./images/StockP__3_-removebg-preview.png">
                                 </a>
                                 <li>
-                                    <a href="<c:url value="/shoes/basketball/basketball_info.do">BASKETBALL</a>
+                                    <a href="/">BASKETBALL</a>
                                        </li>
                                        <li>
-                                       <a href="<c:url value="/shoes/football/football_info.do">FOOTBALL</a>
+                                       <a href="/">FOOTBALL</a>
                                         </li>
                                         <li>
-                                            <a href="<c:url value="/shoes/running/running_info.do">RUNNING</a>
+                                            <a href="/">RUNNING</a>
                                                </li>
                                                <li>
-                                               <a href="<c:url value="/shoes/lifestyle/lifestyle_info.do">LIFESTYLE</a>
+                                               <a href="/">LIFESTYLE</a>
                                                 </li>
                                                 <li>
-                                                    <a href="<c:url value="/user/login.do">LOG IN/LOG OUT</a>
+                                                    <a href="/">LOG IN/LOG OUT</a>
                                                        <li>
-                                                       <a href="<c:url value="/user/register.do">REGISTER</a>
+                                                       <a href="/">REGISTER</a>
                                                         </li>
                                                         </li>
                                                         <li>
-                                                            <a href="<c:url value="/cart/index.do">
+                                                            <a href="/">
                                                                <i class="fa fa-shopping-cart"></i>
                                                                 </a>
                                                             </li>

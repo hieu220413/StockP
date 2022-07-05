@@ -13,17 +13,23 @@ public class Shoes {
     private String name;
     private String img;
     private float price;
-    private Category category;
+    private String categoryId;
+    private String categoryName;
+    private int sizeId;
+    private int amount;
 
     public Shoes() {
     }
 
-    public Shoes(String shoeId, String name, String img, float price, Category category) {
+    public Shoes(String shoeId, String name, String img, float price, String categoryId, String categoryName, int sizeId, int amount) {
         this.shoeId = shoeId;
         this.name = name;
         this.img = img;
         this.price = price;
-        this.category = category;
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+        this.sizeId = sizeId;
+        this.amount = amount;
     }
 
     public String getShoeId() {
@@ -58,13 +64,36 @@ public class Shoes {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
-    
-    
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public int getSizeId() {
+        return sizeId;
+    }
+
+    public void setSizeId(int sizeId) {
+        this.sizeId = sizeId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
 }

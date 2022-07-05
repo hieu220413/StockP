@@ -44,7 +44,7 @@ public class ShoesManager {
             shoes.setAmount(rs.getInt("amount"));
             list.add(shoes);
         }
-        //closing the connection
+        //closing the connection 
         con.close();
         return list;
     }

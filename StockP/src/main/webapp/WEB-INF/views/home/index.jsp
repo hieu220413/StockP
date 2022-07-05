@@ -53,7 +53,7 @@
                 <div class="col-md-4">
                     <div class="text-center">
                         <a href="">
-                            <img style="width:100%" class="img-responsive" src="images/basketball2.png" />
+                            <img style="width:100%" class="img-responsive" src="<c:url value="/images/basketball2.png"/>" />
                         </a>
                         <div class="service-item">
                             <h3 class="sertice-item-titile">BASKETBALL</h3>
@@ -69,7 +69,7 @@
                 <div class="col-md-4">
                     <div class="text-center">
                         <a href="">
-                            <img style="width:100%" class="img-responsive" src="images/fooball1.jpg" />
+                            <img style="width:100%" class="img-responsive" src="<c:url value="/images/fooball1.jpg"/>" />
                         </a>
                         <div class="service-item">
                             <h3 class="sertice-item-titile">FOOTBALL</h3>
@@ -93,7 +93,7 @@
                 <div class="col-md-4">
                     <div class="text-center">
                         <a href="">
-                            <img style="width:100%" src="images/runnig.png" class="img-responsive" />
+                            <img style="width:100%" src="<c:url value="/images/runnig.png"/>" class="img-responsive" />
                         </a>
                         <div class="item">
                             <div class="service-item">
@@ -111,7 +111,7 @@
                 <div class="col-md-4">
                     <div class="text-center">
                         <a href="">
-                            <img style="width:100%" src="images/lifestyle.png" class="img-responsive" />
+                            <img style="width:100%" src="<c:url value="/images/lifestyle.png"/>" class="img-responsive" />
                         </a>
                         <div class="item">
                             <div class="service-item">

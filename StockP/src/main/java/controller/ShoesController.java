@@ -31,18 +31,24 @@ public class ShoesController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ShoesController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ShoesController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String action = (String) request.getAttribute("action");
+        String controller = (String) request.getAttribute("controller");
+        switch (action) {
+            case "basketball_info":
+                break;
+            case "football_info":
+                break;
+            case "lifestyle_info":
+                break;
+            case "running_info":
+                break;
+            default:
+                //chuyen den trang thong bao loi
+                request.setAttribute("controller", "error");
+                request.setAttribute("action", "index");
+                request.setAttribute("message", "Error when proccessing the request");
         }
+        request.getRequestDispatcher(config.Config.LAYOUT).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

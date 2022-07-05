@@ -15,20 +15,20 @@ public class Shoes {
     private float price;
     private String categoryId;
     private String categoryName;
-    private int sizeId;
+    private int size;
     private int amount;
 
     public Shoes() {
     }
 
-    public Shoes(String shoeId, String name, String img, float price, String categoryId, String categoryName, int sizeId, int amount) {
+    public Shoes(String shoeId, String name, String img, float price, String categoryId, String categoryName, int size, int amount) {
         this.shoeId = shoeId;
         this.name = name;
         this.img = img;
         this.price = price;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
-        this.sizeId = sizeId;
+        this.size = size;
         this.amount = amount;
     }
 
@@ -80,12 +80,12 @@ public class Shoes {
         this.categoryName = categoryName;
     }
 
-    public int getSizeId() {
-        return sizeId;
+    public int getSize() {
+        return size;
     }
 
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public int getAmount() {

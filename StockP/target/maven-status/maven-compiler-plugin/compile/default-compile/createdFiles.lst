@@ -14,3 +14,4 @@ model\Category.class
 utils\DBUtil.class
 controller\FrontController.class
 manager\CategoryManager.class
+

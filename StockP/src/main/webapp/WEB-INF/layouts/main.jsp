@@ -44,25 +44,25 @@
                                <img style="height: 100px" src="./images/StockP__3_-removebg-preview.png">
                                 </a>
                                 <li>
-                                    <a href="">BASKETBALL</a>
+                                    <a href="/">BASKETBALL</a>
                                        </li>
                                        <li>
-                                       <a href="">FOOTBALL</a>
+                                       <a href="/">FOOTBALL</a>
                                         </li>
                                         <li>
-                                            <a href="">RUNNING</a>
+                                            <a href="/">RUNNING</a>
                                                </li>
                                                <li>
-                                               <a href="">LIFESTYLE</a>
+                                               <a href="/">LIFESTYLE</a>
                                                 </li>
                                                 <li>
-                                                    <a href="">LOG IN/LOG OUT</a>
+                                                    <a href="/">LOG IN/LOG OUT</a>
                                                        <li>
-                                                       <a href="">REGISTER</a>
+                                                       <a href="/">REGISTER</a>
                                                         </li>
                                                         </li>
                                                         <li>
-                                                            <a href="">
+                                                            <a href="/">
                                                                <i class="fa fa-shopping-cart"></i>
                                                                 </a>
                                                             </li>

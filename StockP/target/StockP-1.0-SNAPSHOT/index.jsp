@@ -5,4 +5,4 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:forward page="/views/home/index.do"/>
+<jsp:forward page="/home/index.do"/>

@@ -30,24 +30,27 @@
         <title>Basketball Shoes Page</title>
     </head>
     <body>
-        <table border="1" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="shoes" items="${list}" varStatus="loop">
+        <div class="container">
+            <h1>Basketball Shoes</h1>
+            <hr/>
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>${loop.count}</td>
-                        <td>${shoes.name}</td>
-                        <td>${shoes.price}</td>
+                        <th>Name</th>
+                        <th style="text-align: right">Price</th>
                     </tr>
-                </c:forEach>     
-            </tbody>
-        </table>
-        <h1>Basketball</h1>
+                </thead>
+                <tbody>
+<!--                    do not var="shoes", items="${list}, get atributes from Shoes.java -->
+                    <c:forEach var="shoes" items="${list}" varStatus="loop"> 
+                        <tr>
+                            <td>${shoes.name}</td>
+                            <td style="text-align: right;">${shoes.price}</td>
+                        </tr>
+                    </c:forEach>     
+                </tbody>
+
+            </table>
+        </div>
     </body>
 </html>

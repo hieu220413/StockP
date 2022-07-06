@@ -30,24 +30,25 @@
         <title>Lifestyle Shoes Page</title>
     </head>
     <body>
-        <table border="1" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="shoes" items="${list}" varStatus="loop">
-                    <tr>
-                        <td>${loop.count}</td>
-                        <td>${shoes.name}</td>
-                        <td>${shoes.price}</td>
-                    </tr>
-                </c:forEach>     
-            </tbody>
-        </table>
-        <h1>Lifestyle</h1>
+        <c:forEach var="shoes" items="${list}" varStatus="loop"> 
+            <div class="container mt-3">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">${shoes.name}</h4>
+                        <h5 class="card-text">${shoes.price}$</h5>
+                        Size <select name="size" class="form-select">
+                            <option value="${shoes.size}">7</option>
+                            <option value="${shoes.size}">8</option>
+                            <option value="${shoes.size}">9</option> 
+                            <option value="${shoes.size}">10</option>
+                        </select>
+                        <br/>
+                        <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </c:forEach>      
     </body>
 </html>

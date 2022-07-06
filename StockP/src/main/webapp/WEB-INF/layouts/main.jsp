@@ -57,9 +57,9 @@
                                 <a href="<c:url value="/shoes/lifestyle_info.do"/>">LIFESTYLE</a>
                             </li>
                             <li>
-                                <a href="/">LOG IN/LOG OUT</a>
+                                <a href="<c:url value="/user/login.do"/>">LOG IN/LOG OUT</a>
                             <li>
-                                <a href="/">REGISTER</a>
+                                <a href="<c:url value="/user/register.do"/>">REGISTER</a>
                             </li>
                             </li>
                             <li>

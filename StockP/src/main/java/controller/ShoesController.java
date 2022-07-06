@@ -40,7 +40,7 @@ public class ShoesController extends HttpServlet {
             case "basketball_info": {
                 list(request, response, "BAE");
             }
-            break;
+                break;
             case "football_info":
                 list(request, response, "FTB");
                 break;

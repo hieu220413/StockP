@@ -30,6 +30,7 @@
     </head>
     <body>
         <div class="content-wrapper">
+            
             <div class="content">
                 <div class="signup-wrapper shadow-box">
                     <div class="company-details ">
@@ -39,6 +40,7 @@
                             <div class="slogan">We deliver shoes to you.</div>
                         </div>
                     </div>
+                    
                     <div class="signup-form ">
                         <div class="wrapper-2">
                             <div class="form-title">Sign in !</div>
@@ -56,6 +58,7 @@
                                     </p>
                                     <button type="submit" class="signup">i want a pair of shoes </button>
                                 </form>
+                                
                             </div>
                         </div>
                     </div>

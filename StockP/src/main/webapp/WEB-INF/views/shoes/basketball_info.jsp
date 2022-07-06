@@ -30,6 +30,24 @@
         <title>Basketball Shoes Page</title>
     </head>
     <body>
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="shoes" items="${list}" varStatus="loop">
+                    <tr>
+                        <td>${loop.count}</td>
+                        <td>${shoes.name}</td>
+                        <td>${shoes.price}</td>
+                    </tr>
+                </c:forEach>     
+            </tbody>
+        </table>
         <h1>Basketball</h1>
     </body>
 </html>

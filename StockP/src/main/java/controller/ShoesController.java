@@ -42,10 +42,13 @@ public class ShoesController extends HttpServlet {
             }
             break;
             case "football_info":
+                list(request, response, "FTB");
                 break;
             case "lifestyle_info":
+                list(request, response, "LIS");
                 break;
             case "running_info":
+                list(request, response, "RUN");
                 break;
             default:
                 //chuyen den trang thong bao loi

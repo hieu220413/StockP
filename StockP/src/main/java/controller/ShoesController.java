@@ -6,11 +6,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import manager.ShoesManager;
+import model.Shoes;
 
 /**
  *
@@ -34,13 +37,18 @@ public class ShoesController extends HttpServlet {
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
         switch (action) {
-            case "basketball_info":
-                break;
+            case "basketball_info": {
+                list(request, response, "BAE");
+            }
+            break;
             case "football_info":
+                list(request, response, "FTB");
                 break;
             case "lifestyle_info":
+                list(request, response, "LIS");
                 break;
             case "running_info":
+                list(request, response, "RUN");
                 break;
             default:
                 //chuyen den trang thong bao loi
@@ -49,6 +57,13 @@ public class ShoesController extends HttpServlet {
                 request.setAttribute("message", "Error when proccessing the request");
         }
         request.getRequestDispatcher(config.Config.LAYOUT).forward(request, response);
+    }
+
+    protected void list(HttpServletRequest request, HttpServletResponse response, String categoryId)
+            throws ServletException, IOException {
+        ShoesManager sm = new ShoesManager();
+        ArrayList<Shoes> list = sm.getShoes(categoryId);
+        request.setAttribute("list", list);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

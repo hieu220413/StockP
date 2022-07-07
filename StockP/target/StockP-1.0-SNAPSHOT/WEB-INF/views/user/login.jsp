@@ -38,10 +38,13 @@
     </style>
 
     <body>
-        <div class="content-wrapper">
+
+        <div style="width: 100vw; height: 70vh;" class="content-wrapper">
 
             <div class="content">
+
                 <div class="signup-wrapper shadow-box">
+
                     <div class="company-details ">
                         <div class="shadow"></div>
                         <div class="wrapper-1">
@@ -70,8 +73,11 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">

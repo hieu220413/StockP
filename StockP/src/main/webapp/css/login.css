@@ -30,11 +30,11 @@ p {
     }
 } */
 
-.signup-wrapper .company-details {
-    background: url(/images/SKATERBOARD.jpg);
+/*.signup-wrapper .company-details {
+    background: url();
     background-size: cover;
     position: relative;
-}
+}*/
 
 .signup-wrapper .company-details:before {
     content: "";

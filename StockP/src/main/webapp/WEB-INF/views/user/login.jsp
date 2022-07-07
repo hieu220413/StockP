@@ -28,8 +28,18 @@
         <link href="<c:url value="/css/login.css" />" rel="stylesheet" type="text/css"/>
         <title>Login Form</title>
     </head>
+
+    <style>
+        .signup-wrapper .company-details {
+            background: url(<c:url value="/images/SKATERBOARD.jpg"/>);
+            background-size: cover;
+            position: relative;
+        }
+    </style>
+
     <body>
         <div class="content-wrapper">
+
             <div class="content">
                 <div class="signup-wrapper shadow-box">
                     <div class="company-details ">
@@ -39,6 +49,7 @@
                             <div class="slogan">We deliver shoes to you.</div>
                         </div>
                     </div>
+
                     <div class="signup-form ">
                         <div class="wrapper-2">
                             <div class="form-title">Sign in !</div>

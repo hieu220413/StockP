@@ -28,6 +28,15 @@
         <link href="<c:url value="/css/register.css" />" rel="stylesheet" type="text/css"/>
         <title>Register Form</title>
     </head>
+    <style>
+        .rf {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url(<c:url value="/images/backgroundimagesneaker.jpg"/>);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
     <body>
         <div class="container mt-3 rf">
             <h2 style="text-align: center;" style="padding: 0px 50px; padding-top: 50px; font-weight: bold;">StockP Sneaker Store's Register </h2>

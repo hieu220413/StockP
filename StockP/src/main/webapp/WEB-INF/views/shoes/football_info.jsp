@@ -31,27 +31,14 @@
         <title>Football Shoes Page</title>
     </head>
     <body>
-        <div class="row">
-            <div class="col-md-1">
 
-            </div>
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-4">
+        <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
+            <div>
                 <input type="text" placeholder="Search" class="search" placeholder="Search">
-                <button type="button" class="button-1">Search</button>
-            </div>
-            <div class="col-md-1">
-
+                <button type="submit" class="button-1">Search</button>
             </div>
         </div>
+        <br/>
 
         <div style="width: 100vw" class="container">
             <div class="row">

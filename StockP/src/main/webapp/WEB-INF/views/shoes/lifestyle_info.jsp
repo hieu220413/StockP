@@ -27,9 +27,31 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">       
         <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="<c:url value="/css/button.css"/>">
         <title>Lifestyle Shoes Page</title>
     </head>
     <body>
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+                <input type="text" placeholder="Search" class="search" placeholder="Search">
+                <button type="button" class="button-1">Search</button>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
         <c:forEach var="shoes" items="${list}" varStatus="loop"> 
             <div class="container mt-3">
                 <div class="card" style="width:400px">

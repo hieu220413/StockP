@@ -26,13 +26,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">       
-        <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet" type="text/css"/>
+        <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet">
         <link rel="stylesheet" href="<c:url value="/css/button.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/responsiveDevices.css"/>">
         <title>Basketball Shoes Page</title>
     </head>
     <body>
         <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-2">
 
             </div>
             <div class="col-md-2">
@@ -46,31 +47,39 @@
             </div>
             <div class="col-md-4">
                 <input type="text" placeholder="Search" class="search" placeholder="Search">
-                <button type="button" class="button-1">Search</button>
-            </div>
-            <div class="col-md-1">
-
+                <button type="submit" class="button-1">Search</button>
             </div>
         </div>
-        <c:forEach var="shoes" items="${list}" varStatus="loop"> 
-            <div class="col-md-3">
-                <div class="card" style="width:400px">
-                    <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                        <h4 class="card-title">${shoes.name}</h4>
-                        <h5 class="card-text">${shoes.price}$</h5>
-                        Size <select name="size" class="form-select">
-                            <option value="${shoes.size}">7</option>
-                            <option value="${shoes.size}">8</option>
-                            <option value="${shoes.size}">9</option> 
-                            <option value="${shoes.size}">10</option>
-                        </select>
-                        <br/>
-                        <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
+        <br/>
+
+        <div style="width: 100vw " class="container">
+            <div class="row">
+
+                <c:forEach var="shoes" items="${list}" begin="0" end="15">
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="card" style="width:100%">
+                            <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">${shoes.name}</h4>
+                                <h5 class="card-text">${shoes.price}$</h5>
+                                Size <select name="size" class="form-select">
+                                    <option value="${shoes.size}">7</option>
+                                    <option value="${shoes.size}">8</option>
+                                    <option value="${shoes.size}">9</option> 
+                                    <option value="${shoes.size}">10</option>
+                                </select>
+                                <br/>
+                                <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
+                            </div>
+                        </div>
+                        <br>
                     </div>
-                </div>
-                <br>
-            </div>
-        </c:forEach>            
+
+                </c:forEach> 
+
+            </div>   
+        </div> 
+
     </body>
 </html>

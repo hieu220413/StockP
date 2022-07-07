@@ -52,25 +52,34 @@
 
             </div>
         </div>
-        <c:forEach var="shoes" items="${list}" varStatus="loop"> 
-            <div class="container mt-3">
-                <div class="card" style="width:400px">
-                    <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                        <h4 class="card-title">${shoes.name}</h4>
-                        <h5 class="card-text">${shoes.price}$</h5>
-                        Size <select name="size" class="form-select">
-                            <option value="${shoes.size}">7</option>
-                            <option value="${shoes.size}">8</option>
-                            <option value="${shoes.size}">9</option> 
-                            <option value="${shoes.size}">10</option>
-                        </select>
-                        <br/>
-                        <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
+        <br/>
+        <div style="width: 100vw" class="container">
+            <div class="row">
+
+                <c:forEach var="shoes" items="${list}" begin="0" end="10">
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="card" style="width:100%">
+                            <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">${shoes.name}</h4>
+                                <h5 class="card-text">${shoes.price}$</h5>
+                                Size <select name="size" class="form-select">
+                                    <option value="${shoes.size}">7</option>
+                                    <option value="${shoes.size}">8</option>
+                                    <option value="${shoes.size}">9</option> 
+                                    <option value="${shoes.size}">10</option>
+                                </select>
+                                <br/>
+                                <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
+                            </div>
+                        </div>
+                        <br>
                     </div>
-                </div>
-                <br>
-            </div>
-        </c:forEach>      
+
+                </c:forEach> 
+
+            </div>   
+        </div>       
     </body>
 </html>

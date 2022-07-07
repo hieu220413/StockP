@@ -52,7 +52,7 @@
         </div>
         <br/>
 
-        <div style="width: 100vw" class="container">
+        <div style="width: 100vw " class="container">
             <div class="row">
 
                 <c:forEach var="shoes" items="${list}" begin="0" end="15">

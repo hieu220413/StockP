@@ -28,31 +28,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">       
         <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet">
         <link rel="stylesheet" href="<c:url value="/css/button.css"/>">
-        <link rel="stylesheet" href="<c:url value="/css/responsiveDevices.css"/>">
         <title>Basketball Shoes Page</title>
     </head>
     <body>
-        <div class="row">
-            <div class="col-md-2">
 
-            </div>
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-4">
+        <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
+            <div>
                 <input type="text" placeholder="Search" class="search" placeholder="Search">
                 <button type="submit" class="button-1">Search</button>
             </div>
         </div>
         <br/>
 
-        <div style="width: 100vw" class="container">
+        <div style="width: 100vw " class="container">
             <div class="row">
 
                 <c:forEach var="shoes" items="${list}" begin="0" end="15">

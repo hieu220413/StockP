@@ -30,7 +30,7 @@
     </head>
     <style>
         .rf {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url(<c:url value="/images/backgroundimagesneaker.jpg"/>);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url(<c:url value="/images/backgroundimagesneaker.jpg"/>);
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;

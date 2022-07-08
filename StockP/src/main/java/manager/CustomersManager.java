@@ -20,7 +20,7 @@ public class CustomersManager {
 
     private static final String CHECK_LOGIN = "SELECT * FROM customers WHERE username = ? AND [password] = ? ";
     private static final String REGISTER = "INSERT into customers VALUES (?,?,?,?,?);";
-
+    private static final String CHECK_DUPLICATE_USERNAME = "SELECT * FROM customers WHERE username = ?";
     /**
      * Check username and password
      *
@@ -70,6 +70,19 @@ public class CustomersManager {
             ps.setString(4, customer.getAddress());
             ps.setString(5, customer.getPassword());
             if (ps.executeUpdate() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean checkDuplicateUsername(String username) throws SQLException{
+        Connection con = DBUtil.getConnection();
+        if (con != null) {
+            PreparedStatement ps = con.prepareStatement(CHECK_DUPLICATE_USERNAME);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
                 return true;
             }
         }

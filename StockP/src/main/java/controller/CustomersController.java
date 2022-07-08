@@ -93,31 +93,61 @@ public class CustomersController extends HttpServlet {
 
     private void save(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String fullname = request.getParameter("fullname");
-        String username = request.getParameter("username");
-        String password = request.getParameter("pw");
-        String confirmPw = request.getParameter("Cpw");
-        int gender = Integer.parseInt(request.getParameter("gender"));
-        String address = request.getParameter("address");
-        if (password.equals(confirmPw)) {
-            try {
-                Customers cus = new Customers(fullname, username, password, gender, address);
-                CustomersManager cusManager = new CustomersManager();
-                if (cusManager.register(cus)) {
-
-                }
-            } catch (SQLException ex) {
-                request.setAttribute("controller", "error");
-                request.setAttribute("action", "index");
-                request.setAttribute("message", ex.getMessage());
-                log("Error at MainController: " + ex.toString());
+        try {
+            CustomersManager cusManager = new CustomersManager();
+            String fullname = request.getParameter("fullname");
+            String username = request.getParameter("username");
+            String password = request.getParameter("pw");
+            String confirmPw = request.getParameter("Cpw");
+            int gender = Integer.parseInt(request.getParameter("gender"));
+            String address = request.getParameter("address");
+            if (cusManager.checkDuplicateUsername(username)) {
+                request.setAttribute("fullname", fullname);
+                request.setAttribute("address", address);
+                request.setAttribute("username", username);
+                request.setAttribute("pw", password);
+                request.setAttribute("Cpw", confirmPw);
+                request.setAttribute("controller", "user");
+                request.setAttribute("action", "register");
+                request.setAttribute("messageUN", "username has been used by another person!");
+                return;
             }
-        } else {
-            request.setAttribute("controller", "user");
-            request.setAttribute("action", "register");
-            request.setAttribute("message", "username or password is incorrect!");
+            if (password.equals(confirmPw)) {
+                String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+                if (password.matches(pattern)) {
+                    Customers cus = new Customers(fullname, username, password, gender, address);
+                    if (cusManager.register(cus)) {
+                        HttpSession session = request.getSession();
+                        session.setAttribute("LOGIN_CUSTOMER", cus);
+                        request.setAttribute("controller", "home");
+                        request.setAttribute("action", "index");
+                    }
+                } else {
+                    request.setAttribute("fullname", fullname);
+                    request.setAttribute("address", address);
+                    request.setAttribute("username", username);
+                    request.setAttribute("pw", password);
+                    request.setAttribute("Cpw", confirmPw);
+                    request.setAttribute("controller", "user");
+                    request.setAttribute("action", "register");
+                    request.setAttribute("messagePW", "password must contain at least 8 letters with lower,upper letter and special digit!");
+                }
+            } else {
+                request.setAttribute("fullname", fullname);
+                request.setAttribute("address", address);
+                request.setAttribute("username", username);
+                request.setAttribute("pw", password);
+                request.setAttribute("Cpw", confirmPw);
+                request.setAttribute("controller", "user");
+                request.setAttribute("action", "register");
+                request.setAttribute("messagePW", "password confirmed doesn't match!");
+            }
+        } catch (SQLException ex) {
+            request.setAttribute("controller", "error");
+            request.setAttribute("action", "index");
+            request.setAttribute("message", ex.getMessage());
+            log("Error at MainController: " + ex.toString());
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

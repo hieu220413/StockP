@@ -31,20 +31,18 @@
         <title>Basketball Shoes Page</title>
     </head>
     <body>
-        <form>
+        <form action="<c:url value="/shoes/basketball_info.do?op=search"/>">
             <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
                 <div>
-                    <input type="text" placeholder="Search" class="search">
-                    <button type="submit" class="button-1">Search</button>
+                    <input type="text" placeholder="Search" class="search" name="searchText" value="${searchText}">
+                    <button type="submit" class="button-1" name="op" value="search">Search</button>
                 </div>
             </div>
         </form>
         <br/>
         <div style="width: 100vw " class="container">
             <div class="row">
-
-                <c:forEach var="shoes" items="${list}" begin="0" end="15">
-
+                <c:forEach var="shoes" items="${list}">
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="card" style="width:100%">
                             <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
@@ -66,11 +64,8 @@
                         </div>
                         <br>
                     </div>
-
                 </c:forEach> 
-
             </div>   
         </div> 
-
     </body>
 </html>

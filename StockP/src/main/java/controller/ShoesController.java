@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import manager.ShoesManager;
 import model.Shoes;
 
@@ -36,19 +37,48 @@ public class ShoesController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
+        String op = request.getParameter("op");
         switch (action) {
-            case "basketball_info": 
-                list(request, response, "BAE");
-                break;
-            case "football_info":
-                list(request, response, "FTB");
-                break;
-            case "lifestyle_info":
-                list(request, response, "LIS");
-                break;
-            case "running_info":
-                list(request, response, "RUN");
-                break;
+            case "basketball_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response, "BAE");
+                    }
+                } else {
+                    list(request, response, "BAE");
+                }
+            }
+            break;
+            case "football_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response, "FTB");
+                    }
+                } else {
+                    list(request, response, "FTB");
+                }
+            }
+            break;
+            case "lifestyle_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response, "LIS");
+                    }
+                } else {
+                    list(request, response, "LIS");
+                }
+            }
+            break;
+            case "running_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response, "RUN");
+                    }
+                } else {
+                    list(request, response, "RUN");
+                }
+            }
+            break;
             default:
                 //chuyen den trang thong bao loi
                 request.setAttribute("controller", "error");
@@ -63,6 +93,16 @@ public class ShoesController extends HttpServlet {
         ShoesManager sm = new ShoesManager();
         ArrayList<Shoes> list = sm.getShoes(categoryId);
         request.setAttribute("list", list);
+    }
+
+    protected void searchList(HttpServletRequest request, HttpServletResponse response, String categoryName)
+            throws ServletException, IOException {
+        ShoesManager sm = new ShoesManager();
+        String searchText = request.getParameter("searchText");
+        ArrayList<Shoes> list = sm.getShoesByName(searchText, categoryName);
+        request.setAttribute("list", list);
+        HttpSession session = request.getSession();
+        session.setAttribute("searchText", searchText);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -56,7 +56,7 @@
                             <li>
                                 <a href="<c:url value="/shoes/lifestyle_info.do"/>">LIFESTYLE</a>
                             </li>
-                            
+
                             <c:if test="${sessionScope.LOGIN_CUSTOMER == null}">
                                 <li>
                                     <a href="<c:url value="/user/login.do"/>">LOG IN</a>
@@ -68,6 +68,8 @@
                                     <a href="<c:url value="/user/logout.do"/>">LOG OUT</a>
                                 </li>
                             </c:if>
+                            <li>
+                                <a href="">REGISTER</a>
                             </li>
                             <li>
                                 <a href="/">

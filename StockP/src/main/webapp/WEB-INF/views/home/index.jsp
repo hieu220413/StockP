@@ -101,7 +101,7 @@
 
                 <div class="col-md-4">
                     <div class="text-center">
-                        <a href="">
+                        <a href="<c:url value="/shoes/basketball_info.do"/>">
                             <img style="width:100%" class="img-responsive" src="<c:url value="/images/basketball2.png"/>" />
                         </a>
                         <div class="service-item">

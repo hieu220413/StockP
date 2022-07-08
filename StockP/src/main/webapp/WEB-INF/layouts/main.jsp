@@ -90,8 +90,7 @@
                     <div class="text-center footer">
                         <h3 style="font-weight: bold; font-style: normal; color: #95171F;">StockP</h3>
                         <p>PHONE: 0748523113</p>
-                        <p>Store's address: Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh
-                            700000</p>
+                        <p>Store's address: Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh</p>
                         <p>Email: StockP@store.fpt.com</p>
                         <p>Copyrights &copy; by PRJ Class. All Rights Reserved.</p>
                     </div>

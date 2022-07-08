@@ -62,21 +62,23 @@ public class ShoesManager {
         Connection con = DBUtil.getConnection();
         try {
             //creating and executing sql statements
-            String sql = "select * from shoes where name like ?";
+            String sql = "select s.*, c.name as categoryName "
+                    + "from shoes s join category c on s.category_id=c.category_id "
+                    + "where s.name like ?";
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, "%" + name + "%");
             ResultSet rs = stm.executeQuery();
             //Loading data into the list
             while (rs.next()) {
                 Shoes shoes = new Shoes();
-                shoes.setShoeId(rs.getString("shoesId"));
+                shoes.setShoeId(rs.getString("shoes_id"));
                 shoes.setName(rs.getString("name"));
                 shoes.setImg(rs.getString("img"));
                 shoes.setPrice(rs.getFloat("price"));
-                shoes.setCategoryId(rs.getString("categoryId"));
-                shoes.setCategoryName(rs.getString("categoryName"));
+                shoes.setCategoryId(rs.getString("category_id"));               
                 shoes.setSize(rs.getInt("size"));
                 shoes.setAmount(rs.getInt("amount"));
+                shoes.setCategoryName(rs.getString("categoryName"));
                 list.add(shoes);
             }
             //closing the connection 

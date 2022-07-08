@@ -46,10 +46,7 @@ public class CustomersController extends HttpServlet {
                 login(request, response);
                 break;
             case "logout":
-                HttpSession session = request.getSession();
-                session.invalidate();
-                request.setAttribute("controller", "home");
-                request.setAttribute("action", "index");
+                logout(request, response);
                 break;
             case "register":
                 break;
@@ -63,6 +60,14 @@ public class CustomersController extends HttpServlet {
                 request.setAttribute("message", "Error when proccessing the request");
         }
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
+    }
+
+    private void logout(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        request.setAttribute("controller", "home");
+        request.setAttribute("action", "index");
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response)
@@ -101,6 +106,8 @@ public class CustomersController extends HttpServlet {
             String confirmPw = request.getParameter("Cpw");
             int gender = Integer.parseInt(request.getParameter("gender"));
             String address = request.getParameter("address");
+            
+            //validation
             if (cusManager.checkDuplicateUsername(username)) {
                 request.setAttribute("fullname", fullname);
                 request.setAttribute("address", address);
@@ -112,7 +119,10 @@ public class CustomersController extends HttpServlet {
                 request.setAttribute("messageUN", "username has been used by another person!");
                 return;
             }
+            
+            //check if password and confirm password matched or not
             if (password.equals(confirmPw)) {
+                //check if password meet the condition or not (8 digit,one lower,upper, special digit)
                 String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
                 if (password.matches(pattern)) {
                     Customers cus = new Customers(fullname, username, password, gender, address);

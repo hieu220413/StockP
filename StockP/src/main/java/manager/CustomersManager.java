@@ -21,6 +21,7 @@ public class CustomersManager {
     private static final String CHECK_LOGIN = "SELECT * FROM customers WHERE username = ? AND [password] = ? ";
     private static final String REGISTER = "INSERT into customers VALUES (?,?,?,?,?);";
     private static final String CHECK_DUPLICATE_USERNAME = "SELECT * FROM customers WHERE username = ?";
+
     /**
      * Check username and password
      *
@@ -75,14 +76,22 @@ public class CustomersManager {
         }
         return false;
     }
-    
-    public boolean checkDuplicateUsername(String username) throws SQLException{
+
+    /**
+     * Check username has already used by another customer or not
+     *
+     * @param username Customer's username
+     * @return <code>true</code> if username contained in database, else the
+     * value returned is <code>false</code>
+     * @throws SQLException
+     */
+    public boolean checkDuplicateUsername(String username) throws SQLException {
         Connection con = DBUtil.getConnection();
         if (con != null) {
             PreparedStatement ps = con.prepareStatement(CHECK_DUPLICATE_USERNAME);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 return true;
             }
         }

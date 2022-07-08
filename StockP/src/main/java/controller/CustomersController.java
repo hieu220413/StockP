@@ -53,6 +53,9 @@ public class CustomersController extends HttpServlet {
                 break;
             case "register":
                 break;
+            case "save":
+                save(request, response);
+                break;
             default:
                 //chuyen den trang thong bao loi
                 request.setAttribute("controller", "error");
@@ -75,7 +78,7 @@ public class CustomersController extends HttpServlet {
                 session.setAttribute("LOGIN_CUSTOMER", cus);
                 request.setAttribute("controller", "home");
                 request.setAttribute("action", "index");
-            }else{
+            } else {
                 request.setAttribute("controller", "user");
                 request.setAttribute("action", "login");
                 request.setAttribute("message", "username or password is incorrect!");
@@ -86,6 +89,35 @@ public class CustomersController extends HttpServlet {
             request.setAttribute("message", ex.getMessage());
             log("Error at MainController: " + ex.toString());
         }
+    }
+
+    private void save(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String fullname = request.getParameter("fullname");
+        String username = request.getParameter("username");
+        String password = request.getParameter("pw");
+        String confirmPw = request.getParameter("Cpw");
+        int gender = Integer.parseInt(request.getParameter("gender"));
+        String address = request.getParameter("address");
+        if (password.equals(confirmPw)) {
+            try {
+                Customers cus = new Customers(fullname, username, password, gender, address);
+                CustomersManager cusManager = new CustomersManager();
+                if (cusManager.register(cus)) {
+
+                }
+            } catch (SQLException ex) {
+                request.setAttribute("controller", "error");
+                request.setAttribute("action", "index");
+                request.setAttribute("message", ex.getMessage());
+                log("Error at MainController: " + ex.toString());
+            }
+        } else {
+            request.setAttribute("controller", "user");
+            request.setAttribute("action", "register");
+            request.setAttribute("message", "username or password is incorrect!");
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

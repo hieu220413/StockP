@@ -37,9 +37,8 @@ public class ShoesController extends HttpServlet {
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
         switch (action) {
-            case "basketball_info": {
+            case "basketball_info": 
                 list(request, response, "BAE");
-            }
                 break;
             case "football_info":
                 list(request, response, "FTB");

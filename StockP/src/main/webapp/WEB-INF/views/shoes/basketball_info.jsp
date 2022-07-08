@@ -31,15 +31,15 @@
         <title>Basketball Shoes Page</title>
     </head>
     <body>
-
-        <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
-            <div>
-                <input type="text" placeholder="Search" class="search" placeholder="Search">
-                <button type="submit" class="button-1">Search</button>
+        <form>
+            <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
+                <div>
+                    <input type="text" placeholder="Search" class="search">
+                    <button type="submit" class="button-1">Search</button>
+                </div>
             </div>
-        </div>
+        </form>
         <br/>
-
         <div style="width: 100vw " class="container">
             <div class="row">
 
@@ -51,12 +51,15 @@
                             <div class="card-body">
                                 <h4 class="card-title">${shoes.name}</h4>
                                 <h5 class="card-text">${shoes.price}$</h5>
-                                Size <select name="size" class="form-select">
-                                    <option value="${shoes.size}">7</option>
-                                    <option value="${shoes.size}">8</option>
-                                    <option value="${shoes.size}">9</option> 
-                                    <option value="${shoes.size}">10</option>
-                                </select>
+                                <div class="form-floating">
+                                    <select class="form-select" id="sel1" name="sellist">
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                    <label for="sel1" class="form-label">Select size (US):</label>
+                                </div>
                                 <br/>
                                 <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
                             </div>

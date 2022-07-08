@@ -41,7 +41,7 @@
         <div class="container mt-3 rf">
             <h2 style="text-align: center;" style="padding: 0px 50px; padding-top: 50px; font-weight: bold;">StockP Sneaker Store's Register </h2>
             <p style="padding: 0px 50px; font-weight: bold;">We deliver shoes to you !</p>
-            <form style="padding-bottom: 50px; padding: 0px 50px 50px 50px;" action="<c:url value="/user/save.do"/>" method="GET">
+            <form style="padding-bottom: 50px; padding: 0px 50px 50px 50px;" action="<c:url value="/user/save.do"/>" method="POST">
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname" value="${fullname}"
                            required>

@@ -69,9 +69,6 @@
                                 </li>
                             </c:if>
                             <li>
-                                <a href="<c:url value="/user/register.do"/>">REGISTER</a>
-                            </li>
-                            <li>
                                 <a href="/">
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>

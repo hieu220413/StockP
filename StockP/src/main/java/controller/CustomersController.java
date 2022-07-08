@@ -7,11 +7,17 @@ package controller;
 import config.Config;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import manager.CustomersManager;
+import model.Customers;
 
 /**
  *
@@ -34,10 +40,17 @@ public class CustomersController extends HttpServlet {
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
         switch (action) {
-            case "login": 
+            case "login":
                 break;
-//            case "logout": 
-//                break;
+            case "submit":
+                login(request, response);
+                break;
+            case "logout":
+                HttpSession session = request.getSession();
+                session.invalidate();
+                request.setAttribute("controller", "home");
+                request.setAttribute("action", "index");
+                break;
             case "register":
                 break;
             default:
@@ -47,6 +60,32 @@ public class CustomersController extends HttpServlet {
                 request.setAttribute("message", "Error when proccessing the request");
         }
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
+    }
+
+    private void login(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            CustomersManager cusManager = new CustomersManager();
+            Customers cus = null;
+            cus = cusManager.login(username, password);
+            if (cus != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("LOGIN_CUSTOMER", cus);
+                request.setAttribute("controller", "home");
+                request.setAttribute("action", "index");
+            }else{
+                request.setAttribute("controller", "user");
+                request.setAttribute("action", "login");
+                request.setAttribute("message", "username or password is incorrect!");
+            }
+        } catch (SQLException ex) {
+            request.setAttribute("controller", "error");
+            request.setAttribute("action", "index");
+            request.setAttribute("message", ex.getMessage());
+            log("Error at MainController: " + ex.toString());
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

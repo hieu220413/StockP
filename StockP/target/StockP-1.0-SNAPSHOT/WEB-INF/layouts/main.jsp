@@ -56,11 +56,18 @@
                             <li>
                                 <a href="<c:url value="/shoes/lifestyle_info.do"/>">LIFESTYLE</a>
                             </li>
-                            <li>
-                                <a href="<c:url value="/user/login.do"/>">LOG IN/LOG OUT</a>
-                            <li>
-                                <a href="<c:url value="/user/register.do"/>">REGISTER</a>
-                            </li>
+                            
+                            <c:if test="${sessionScope.LOGIN_CUSTOMER == null}">
+                                <li>
+                                    <a href="<c:url value="/user/login.do"/>">LOG IN</a>
+                                </li>
+                            </c:if>
+
+                            <c:if test="${sessionScope.LOGIN_CUSTOMER != null}">
+                                <li>
+                                    <a href="<c:url value="/user/logout.do"/>">LOG OUT</a>
+                                </li>
+                            </c:if>
                             </li>
                             <li>
                                 <a href="/">

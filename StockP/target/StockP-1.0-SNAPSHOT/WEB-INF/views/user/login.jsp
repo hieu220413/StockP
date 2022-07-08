@@ -57,17 +57,19 @@
                         <div class="wrapper-2">
                             <div class="form-title">Sign in !</div>
                             <div class="form">
-                                <form>
+                                <form action="<c:url value="/user/submit.do"/>" method="POST">
                                     <p class="content-item">
                                         <label>Username
-                                            <input type="text" placeholder="" required>
+                                            <input type="text" placeholder="Enter username" name="username" required>
                                         </label>
                                     </p>
                                     <p class="content-item">
                                         <label>password
-                                            <input type="password" placeholder="" name="pw" required>
+                                            <input type="password" placeholder="Enter password" name="password" required>
                                         </label>
                                     </p>
+                                    <a href="<c:url value="/user/register.do"/>">Create an account?</a>
+                                    <span style="color:red;">${message}</span>
                                     <button type="submit" class="signup">i want a pair of shoes </button>
                                 </form>
                             </div>

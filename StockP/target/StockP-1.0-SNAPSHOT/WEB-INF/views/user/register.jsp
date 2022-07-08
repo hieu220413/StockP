@@ -41,43 +41,45 @@
         <div class="container mt-3 rf">
             <h2 style="text-align: center;" style="padding: 0px 50px; padding-top: 50px; font-weight: bold;">StockP Sneaker Store's Register </h2>
             <p style="padding: 0px 50px; font-weight: bold;">We deliver shoes to you !</p>
-            <form style="padding-bottom: 50px; padding: 0px 50px 50px 50px;" action="/action_page.php">
+            <form style="padding-bottom: 50px; padding: 0px 50px 50px 50px;" action="<c:url value="/user/save.do"/>" method="GET">
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname"
+                    <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname" value="${fullname}"
                            required>
                     <label style="font-weight: bold;" for="fullname">Fullname</label>
                 </div>
                 <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address"
+                    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" value="${address}"
                            required>
                     <label style="font-weight: bold;" for="address">Addresss</label>
                 </div>
                 <div class="form-floating mt-3 mb-3">
                     <div class="form-check">
                         <label style="font-weight: bold;" class="form-check-label" for="radio1">
-                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1"
+                            <input type="radio" class="form-check-input" id="radio1" name="gender" value="1"
                                    checked>Male
                         </label>
                         <!-- </div>
                     <div class="form-check"> -->
                         <label style="padding-left: 40px; font-weight: bold;" class="form-check-label" for="radio2">
-                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Female
+                            <input type="radio" class="form-check-input" id="radio2" name="gender" value="0">Female
                         </label>
                     </div>
                 </div>
                 <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="username" placeholder="Enter password" name="username"
+                    <input type="text" class="form-control" id="username" placeholder="Enter password" name="username" value="${username}"
                            required>
                     <label style="font-weight: bold;" for="username">Username</label>
                 </div>
+                <span style="color:red;">${messageUN}</span>
                 <div class="form-floating mt-3 mb-3">
-                    <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw" required>
+                    <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw" value="${pw}" required>
                     <label style="font-weight: bold;" for="pwd">Password</label>
                 </div>
                 <div class="form-floating mt-3 mb-3">
-                    <input type="password" class="form-control" id="Cpw" placeholder="Enter password" name="Cpw" required>
+                    <input type="password" class="form-control" id="Cpw" placeholder="Enter password" name="Cpw" value="${Cpw}" required>
                     <label style="font-weight: bold;" for="pwd">Confirm Password</label>
                 </div>
+                <span style="color:red;">${messagePW}</span>
                 <div style="display: flex; justify-content: center;">
                     <button style="font-weight: bold; border-radius: 5px; padding: 10px 150px;" type="submit"
                             class="btn btn-dark">Register</button>

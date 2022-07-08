@@ -68,8 +68,8 @@
                                             <input type="password" placeholder="Enter password" name="password" required>
                                         </label>
                                     </p>
-                                    <a href="<c:url value="/user/register.do"/>">Create an account?</a>
                                     <span style="color:red;">${message}</span>
+                                    <a href="<c:url value="/user/register.do"/>">Create an account?</a>
                                     <button type="submit" class="signup">i want a pair of shoes </button>
                                 </form>
                             </div>

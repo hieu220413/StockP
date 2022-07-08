@@ -19,6 +19,14 @@ public class Customers {
     public Customers() {
     }
 
+    public Customers(String name, String username, String password, int gender, String address) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.address = address;
+    }
+
     public Customers(String customerId, String name, String username, String password, int gender, String address) {
         this.customerId = customerId;
         this.name = name;

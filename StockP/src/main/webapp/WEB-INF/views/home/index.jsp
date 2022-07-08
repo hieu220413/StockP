@@ -101,7 +101,7 @@
 
                 <div class="col-md-4">
                     <div class="text-center">
-                        <a href="">
+                        <a href="<c:url value="/shoes/basketball_info.do"/>">
                             <img style="width:100%" class="img-responsive" src="<c:url value="/images/basketball2.png"/>" />
                         </a>
                         <div class="service-item">
@@ -117,7 +117,7 @@
 
                 <div class="col-md-4">
                     <div class="text-center">
-                        <a href="">
+                        <a href="<c:url value="/shoes/football_info.do"/>">
                             <img style="width:100%" class="img-responsive" src="<c:url value="/images/fooball1.jpg"/>" />
                         </a>
                         <div class="service-item">
@@ -141,7 +141,7 @@
 
                 <div class="col-md-4">
                     <div class="text-center">
-                        <a href="">
+                        <a href="<c:url value="/shoes/running_info.do"/>">
                             <img style="width:100%" src="<c:url value="/images/runnig.png"/>" class="img-responsive" />
                         </a>
                         <div class="item">
@@ -159,7 +159,7 @@
 
                 <div class="col-md-4">
                     <div class="text-center">
-                        <a href="">
+                        <a href="<c:url value="/shoes/lifestyle_info.do"/>">
                             <img style="width:100%" src="<c:url value="/images/lifestyle.png"/>" class="img-responsive" />
                         </a>
                         <div class="item">

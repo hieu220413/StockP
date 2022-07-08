@@ -69,7 +69,7 @@
                                 </li>
                             </c:if>
                             <li>
-                                <a href="">REGISTER</a>
+                                <a href="<c:url value="/user/register.do"/>">REGISTER</a>
                             </li>
                             <li>
                                 <a href="/">

@@ -32,13 +32,14 @@
     </head>
     <body>
 
-        <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
-            <div>
-                <input type="text" placeholder="Search" class="search" placeholder="Search">
-                <button type="submit" class="button-1">Search</button>
+        <form action="<c:url value="/shoes/lifestyle_info.do?op=search"/>">
+            <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
+                <div>
+                    <input name="searchText" type="text" placeholder="Search" class="search" value="${searchText}">
+                    <button type="submit" name="op" value="search" class="button-1">Search</button>
+                </div>
             </div>
-        </div>
-
+        </form>
         <br/>
 
         <div style="width: 100vw" class="container">

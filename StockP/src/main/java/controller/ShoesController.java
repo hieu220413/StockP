@@ -40,25 +40,45 @@ public class ShoesController extends HttpServlet {
         String op = request.getParameter("op");
         switch (action) {
             case "basketball_info": {
-                if (op != null ) {
-                   if(op.equals("search")) {
-                       searchList(request, response);
-                   }                    
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response);
+                    }
                 } else {
                     list(request, response, "BAE");
                 }
-                
             }
             break;
-            case "football_info":
-                list(request, response, "FTB");
-                break;
-            case "lifestyle_info":
-                list(request, response, "LIS");
-                break;
-            case "running_info":
-                list(request, response, "RUN");
-                break;
+            case "football_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response);
+                    }
+                } else {
+                    list(request, response, "FTB");
+                }
+            }
+            break;
+            case "lifestyle_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response);
+                    }
+                } else {
+                    list(request, response, "LIS");
+                }
+            }
+            break;
+            case "running_info": {
+                if (op != null) {
+                    if (op.equals("search")) {
+                        searchList(request, response);
+                    }
+                } else {
+                    list(request, response, "RUN");
+                }
+            }
+            break;
             default:
                 //chuyen den trang thong bao loi
                 request.setAttribute("controller", "error");

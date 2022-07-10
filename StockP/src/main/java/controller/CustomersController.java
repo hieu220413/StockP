@@ -6,10 +6,7 @@ package controller;
 
 import config.Config;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,24 +37,17 @@ public class CustomersController extends HttpServlet {
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
         switch (action) {
-            case "login":
-                break;
             case "submit":
                 login(request, response);
                 break;
             case "logout":
                 logout(request, response);
                 break;
-            case "register":
-                break;
             case "save":
                 save(request, response);
                 break;
             default:
-                //chuyen den trang thong bao loi
-                request.setAttribute("controller", "error");
-                request.setAttribute("action", "index");
-                request.setAttribute("message", "Error when proccessing the request");
+                break;
         }
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
     }

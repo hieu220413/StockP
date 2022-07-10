@@ -68,7 +68,7 @@
                                             <input type="password" placeholder="Enter password" name="password" required>
                                         </label>
                                     </p>
-                                    <span style="color:red;">${message}</span>
+                                    <span style="color:red;">${message}</span><br><!-- comment -->
                                     <a href="<c:url value="/user/register.do"/>">Create an account?</a>
                                     <button type="submit" class="signup">i want a pair of shoes </button>
                                 </form>

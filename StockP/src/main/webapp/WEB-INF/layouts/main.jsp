@@ -68,11 +68,13 @@
                                     <a href="<c:url value="/user/logout.do"/>">LOG OUT</a>
                                 </li>
                             </c:if>
-                            <li>
-                                <a href="/">
+                            <c:if test="${sessionScope.LOGIN_CUSTOMER != null}">
+                               <li>
+                                <a href="<c:url value="/cart/index.do"/>">
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>
                             </li>
+                            </c:if>                           
                         </ul>
                     </nav>
                 </div>

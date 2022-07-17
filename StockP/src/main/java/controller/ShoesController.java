@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import manager.ShoesManager;
+import model.Cart;
 import model.Shoes;
 
 /**
@@ -44,6 +45,10 @@ public class ShoesController extends HttpServlet {
                     if (op.equals("search")) {
                         searchList(request, response, "BAE");
                     }
+                    if (op.equals("addToCart")) {
+                        addHandler(request, response);
+                        list(request, response, "BAE");
+                    }
                 } else {
                     list(request, response, "BAE");
                 }
@@ -53,6 +58,10 @@ public class ShoesController extends HttpServlet {
                 if (op != null) {
                     if (op.equals("search")) {
                         searchList(request, response, "FTB");
+                    }
+                    if (op.equals("addToCart")) {
+                        addHandler(request, response);
+                        list(request, response, "FTB");
                     }
                 } else {
                     list(request, response, "FTB");
@@ -64,6 +73,10 @@ public class ShoesController extends HttpServlet {
                     if (op.equals("search")) {
                         searchList(request, response, "LIS");
                     }
+                    if (op.equals("addToCart")) {
+                        addHandler(request, response);
+                        list(request, response, "LIS");
+                    }
                 } else {
                     list(request, response, "LIS");
                 }
@@ -73,6 +86,10 @@ public class ShoesController extends HttpServlet {
                 if (op != null) {
                     if (op.equals("search")) {
                         searchList(request, response, "RUN");
+                    }
+                    if (op.equals("addToCart")) {
+                        addHandler(request, response);
+                        list(request, response, "RUN");
                     }
                 } else {
                     list(request, response, "RUN");
@@ -95,14 +112,42 @@ public class ShoesController extends HttpServlet {
         request.setAttribute("list", list);
     }
 
-    protected void searchList(HttpServletRequest request, HttpServletResponse response, String categoryName)
+    protected void searchList(HttpServletRequest request, HttpServletResponse response, String categoryId)
             throws ServletException, IOException {
         ShoesManager sm = new ShoesManager();
         String searchText = request.getParameter("searchText");
-        ArrayList<Shoes> list = sm.getShoesByName(searchText, categoryName);
+        ArrayList<Shoes> list = sm.getShoesByName(searchText, categoryId);
         request.setAttribute("list", list);
         HttpSession session = request.getSession();
         session.setAttribute("searchText", searchText);
+    }
+
+    protected void addHandler(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String id = request.getParameter("id");
+        int size = Integer.parseInt(request.getParameter("size"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        ShoesManager sm = new ShoesManager();
+        Shoes shoes = sm.find(id);
+        shoes.setSize(size);
+        shoes.setAmount(quantity);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("LOGIN_CUSTOMER") == null) {
+            request.setAttribute("controller", "user");
+            request.setAttribute("action", "login");
+        }
+        Cart cart = (Cart) session.getAttribute("cart");
+        //Neu trong session chua co cart thi tao cart moi
+        if (cart == null) {
+            cart = new Cart();
+            //Luu cart vo session
+            session.setAttribute("cart", cart);
+        } else {
+
+        }
+        //Them product vao cart
+        cart.add(shoes);
+        session.setAttribute("cart", cart);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

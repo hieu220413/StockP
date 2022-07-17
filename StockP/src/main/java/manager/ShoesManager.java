@@ -56,7 +56,7 @@ public class ShoesManager {
     }
 
     //get shoes by name
-    public static ArrayList<Shoes> getShoesByName(String name, String categoryName) {
+    public static ArrayList<Shoes> getShoesByName(String name, String categoryId) {
         ArrayList<Shoes> list = new ArrayList<>();
         //connecting to database
         Connection con = DBUtil.getConnection();
@@ -67,7 +67,7 @@ public class ShoesManager {
                     + "where s.name like ? and s.category_id = ?";
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, "%" + name + "%");
-            stm.setString(2, categoryName);
+            stm.setString(2, categoryId);
             ResultSet rs = stm.executeQuery();
             //Loading data into the list
             while (rs.next()) {
@@ -88,5 +88,46 @@ public class ShoesManager {
             Logger.getLogger(ShoesController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    
+    //get detail of shoes which are found
+    public Shoes find(String id) {
+        Shoes shoes = null;
+        Connection con = DBUtil.getConnection();
+        String sql = "select * from shoes where shoes_id = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, id);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                shoes = new Shoes();
+                shoes.setShoeId(rs.getString("shoes_id"));
+                shoes.setName(rs.getString("name"));
+                shoes.setImg(rs.getString("img"));
+                shoes.setPrice(rs.getFloat("price"));
+                shoes.setCategoryId(rs.getString("category_id"));               
+                shoes.setSize(rs.getInt("size"));
+                shoes.setAmount(rs.getInt("amount"));
+                shoes.setCategoryName(rs.getString("categoryName"));
+            }
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return shoes;
+    }
+    
+    public boolean checkShoes(String shoeId) throws SQLException {
+        Connection con = DBUtil.getConnection();
+        String sql = "select * from shoes where shoes_id = ?";
+        if (con != null) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, shoeId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -28,10 +28,20 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">       
         <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet">
         <link rel="stylesheet" href="<c:url value="/css/button.css"/>">
+        <script>
+            function checkSize() {
+                var x = document.getElementById("sell").value;
+                document.getElementById("size").innerHTML = x;
+            }
+            function checkQuantity() {
+                var x = document.getElementById("qtn").value;
+                document.getElementById("quantity").innerHTML = x;
+            }
+        </script>
         <title>Basketball Shoes Page</title>
     </head>
     <body>
-        <form action="<c:url value="/shoes/basketball_info.do?op=search"/>">
+        <form action="<c:url value="/shoes/basketball_info.do"/>">
             <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
                 <div>
                     <input type="text" placeholder="Search" class="search" name="searchText" value="${searchText}">
@@ -44,28 +54,48 @@
             <div class="row">
                 <c:forEach var="shoes" items="${list}">
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="card" style="width:100%">
-                            <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                                <h4 class="card-title">${shoes.name}</h4>
-                                <h5 class="card-text">${shoes.price}$</h5>
-                                <div class="form-floating">
-                                    <select class="form-select" id="sel1" name="sellist">
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                    </select>
-                                    <label for="sel1" class="form-label">Select size (US):</label>
+                        <form action="<c:url value="/shoes/basketball_info.do"/>">
+                            <div class="card" style="width:100%">
+                                <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">${shoes.name}</h4>
+                                    <h5 class="card-text">${shoes.price}$</h5>
+                                    <div class="form-floating">
+                                        <select class="form-select" id="sel1" name="size">
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Select size (US):</label>
+                                    </div>
+                                    <br/>
+                                    <div class="form-floating">
+                                        <select class="form-select" id="qtn" name="quantity">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Quantity:</label>
+                                    </div>
+                                    <br/>
+                                    <input type="hidden" name="id" value="${shoes.shoeId}"/>
+<!--                                    <input type="hidden" id="size" name="size" value="${shoes.size}"/>-->
+                                    <button type="submit" onclick="checkSize()" name="op" value="addToCart" class="btn btn-dark">Add to Cart</button>
                                 </div>
-                                <br/>
-                                <input type="submit" name="op" value="Add to cart" class="btn btn-primary"/>
                             </div>
-                        </div>
+                        </form>
                         <br>
                     </div>
                 </c:forEach> 
             </div>   
-        </div> 
+        </div>
     </body>
 </html>

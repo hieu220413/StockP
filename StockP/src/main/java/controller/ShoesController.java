@@ -126,9 +126,11 @@ public class ShoesController extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
         int size = Integer.parseInt(request.getParameter("size"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         ShoesManager sm = new ShoesManager();
         Shoes shoes = sm.find(id);
         shoes.setSize(size);
+        shoes.setAmount(quantity);
         HttpSession session = request.getSession();
         if (session.getAttribute("LOGIN_CUSTOMER") == null) {
             request.setAttribute("controller", "user");
@@ -141,14 +143,13 @@ public class ShoesController extends HttpServlet {
             //Luu cart vo session
             session.setAttribute("cart", cart);
         } else {
-            
+
         }
         //Them product vao cart
         cart.add(shoes);
         session.setAttribute("cart", cart);
     }
 
-    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

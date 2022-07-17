@@ -35,7 +35,7 @@ public class CartController extends HttpServlet {
         String controller = (String) request.getAttribute("controller");
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

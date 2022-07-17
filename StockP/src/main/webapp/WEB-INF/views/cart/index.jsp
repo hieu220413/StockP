@@ -24,6 +24,7 @@
         <title>Cart Page</title>
     </head>
     <body>
+
         <div style="height: 100vh;" class="container px-3 my-5 clearfix">
 
             <!-- Shopping cart table -->
@@ -105,10 +106,10 @@
                 <div class="container">
 
                     <div class="clearfix">
-
-                        <button type="button" class="btn btn-lg btn-dark float-start mt-2 mb-2">Want more !</button>
-                        <button type="button" class="btn btn-lg btn-dark float-end mt-2 mb-2">Wear now !</button>
-
+                        <form action="">
+                            <button type="button" value="" class="btn btn-lg btn-dark float-start mt-2 mb-2">Want more !</button>
+                            <button type="button" value="op" class="btn btn-lg btn-dark float-end mt-2 mb-2">Wear now !</button>
+                        </form>
                     </div>
 
                 </div>

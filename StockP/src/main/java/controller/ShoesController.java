@@ -140,11 +140,15 @@ public class ShoesController extends HttpServlet {
             cart = new Cart();
             //Luu cart vo session
             session.setAttribute("cart", cart);
+        } else {
+            
         }
         //Them product vao cart
         cart.add(shoes);
+        session.setAttribute("cart", cart);
     }
 
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

@@ -55,7 +55,7 @@
                                 <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
                                 <div class="card-body">
                                     <h4 class="card-title">${shoes.name}</h4>
-                                    <h5 class="card-text">${shoes.price}</h5>
+                                    <h5 class="card-text">${shoes.price}$</h5>
                                     <div class="form-floating">
                                         <select class="form-select" id="sel1" name="size">
                                             <option value="7">7</option>

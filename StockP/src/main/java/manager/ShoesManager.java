@@ -116,4 +116,18 @@ public class ShoesManager {
         }
         return shoes;
     }
+    
+    public boolean checkShoes(String shoeId) throws SQLException {
+        Connection con = DBUtil.getConnection();
+        String sql = "select * from shoes where shoes_id = ?";
+        if (con != null) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, shoeId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

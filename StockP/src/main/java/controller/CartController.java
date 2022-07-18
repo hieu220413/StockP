@@ -7,11 +7,17 @@ package controller;
 import config.Config;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import manager.ShoesManager;
+import model.Cart;
+import model.Shoes;
 
 /**
  *
@@ -33,9 +39,32 @@ public class CartController extends HttpServlet {
             throws ServletException, IOException {
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
+        String op = request.getParameter("op");
+        if (op != null) {
+            if (op.equals("delete")) {
+                removeFromCart(request, response);
+            }
+        }
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
     }
-    
+
+    protected void removeFromCart(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String id = request.getParameter("id");
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        ArrayList<Shoes> cartList = cart.getCartList();
+        Iterator<Shoes> iter = cartList.iterator();
+        while (iter.hasNext()) {
+            Shoes shoes = iter.next();
+            if (shoes.getShoeId().equals(id)) {
+                iter.remove();
+            }
+        }
+        cart.setCartList(cartList);
+        session.setAttribute("cart", cart);
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

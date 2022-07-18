@@ -56,6 +56,7 @@
                             <tbody>
 
                                 <c:forEach var="shoes" items="${cart.cartList}" varStatus="loop">
+                                <form action="<c:url value="/cart/index.do"/>">
                                     <tr>
                                         <td class="p-4">
                                             <div class="media">
@@ -77,15 +78,15 @@
                                         <td class="text-right font-weight-semibold align-middle p-4"><fmt:formatNumber value="${shoes.price*shoes.amount}" pattern="$#,##0.00"/></td>
                                         <td class="text-center align-middle px-0">
                                             <input type="hidden" name="id" value="${shoes.shoeId}"/>
-                                            <button type="submit" name="op" value="Delete">
-                                                <a href="#"
-                                                   class="shop-tooltip close float-none text-danger" title=""
-                                                   data-original-title="Remove">X</a>
+                                            <button type="submit" name="op" value="delete">
+                                                X
                                             </button>
                                         </td>
 
                                     </tr>
-                                </c:forEach>
+                                </form>
+
+                            </c:forEach>
 
                             </tbody>
 

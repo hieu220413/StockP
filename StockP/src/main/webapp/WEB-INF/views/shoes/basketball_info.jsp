@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,6 +53,11 @@
         <br/>
         <div style="width: 100vw " class="container">
             <div class="row">
+                <c:if test="${empty list}">
+                    <div class="container" style="height:100vh;">
+                        <i style="color: red;">No products are available</i>
+                    </div>
+                </c:if>
                 <c:forEach var="shoes" items="${list}">
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <form action="<c:url value="/shoes/basketball_info.do"/>">
@@ -59,7 +65,7 @@
                                 <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
                                 <div class="card-body">
                                     <h4 class="card-title">${shoes.name}</h4>
-                                    <h5 class="card-text">${shoes.price}$</h5>
+                                    <h5 class="card-text"><fmt:formatNumber value="${shoes.price}" pattern="$#,##0.00"/></h5>
                                     <div class="form-floating">
                                         <select class="form-select" id="sel1" name="size">
                                             <option value="7">7</option>

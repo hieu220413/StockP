@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
     <head>        
@@ -73,10 +74,16 @@
                                         <td class="text-right font-weight-semibold align-middle p-4">${shoes.size}</td>
                                         <td class="align-middle p-4"><input type="text" class="form-control text-center"
                                                                             value="${shoes.amount}"></td>
-                                        <td class="text-right font-weight-semibold align-middle p-4">${shoes.price}</td>
-                                        <td class="text-center align-middle px-0"><a href="#"
-                                                                                     class="shop-tooltip close float-none text-danger" title=""
-                                                                                     data-original-title="Remove">X</a></td>
+                                        <td class="text-right font-weight-semibold align-middle p-4"><fmt:formatNumber value="${shoes.price*shoes.amount}" pattern="$#,##0.00"/></td>
+                                        <td class="text-center align-middle px-0">
+                                            <input type="hidden" name="id" value="${shoes.shoeId}"/>
+                                            <button type="submit" name="op" value="Delete">
+                                                <a href="#"
+                                                   class="shop-tooltip close float-none text-danger" title=""
+                                                   data-original-title="Remove">X</a>
+                                            </button>
+                                        </td>
+
                                     </tr>
                                 </c:forEach>
 

@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,6 +34,10 @@
                 var x = document.getElementById("sell").value;
                 document.getElementById("size").innerHTML = x;
             }
+            function checkQuantity() {
+                var x = document.getElementById("qtn").value;
+                document.getElementById("quantity").innerHTML = x;
+            }
         </script>
         <title>Lifestyle Shoes Page</title>
     </head>
@@ -55,7 +60,7 @@
                                 <img class="card-img-top" src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:100%">
                                 <div class="card-body">
                                     <h4 class="card-title">${shoes.name}</h4>
-                                    <h5 class="card-text">${shoes.price}$</h5>
+                                    <h5 class="card-text"><fmt:formatNumber value="${shoes.price}" pattern="$#,##0.00"/></h5>
                                     <div class="form-floating">
                                         <select class="form-select" id="sel1" name="size">
                                             <option value="7">7</option>
@@ -64,6 +69,22 @@
                                             <option value="10">10</option>
                                         </select>
                                         <label for="sel1" class="form-label">Select size (US):</label>
+                                    </div>
+                                    <br/>
+                                    <div class="form-floating">
+                                        <select class="form-select" id="qtn" name="quantity">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Quantity:</label>
                                     </div>
                                     <br/>
                                     <input type="hidden" name="id" value="${shoes.shoeId}"/>

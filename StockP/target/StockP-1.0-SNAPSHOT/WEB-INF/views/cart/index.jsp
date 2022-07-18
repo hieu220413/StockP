@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
     <head>        
@@ -24,7 +25,6 @@
         <title>Cart Page</title>
     </head>
     <body>
-
         <div style="height: 100vh;" class="container px-3 my-5 clearfix">
 
             <!-- Shopping cart table -->
@@ -56,6 +56,7 @@
                             <tbody>
 
                                 <c:forEach var="shoes" items="${cart.cartList}" varStatus="loop">
+                                <form action="<c:url value="/cart/index.do"/>">
                                     <tr>
                                         <td class="p-4">
                                             <div class="media">
@@ -74,12 +75,18 @@
                                         <td class="text-right font-weight-semibold align-middle p-4">${shoes.size}</td>
                                         <td class="align-middle p-4"><input type="text" class="form-control text-center"
                                                                             value="${shoes.amount}"></td>
-                                        <td class="text-right font-weight-semibold align-middle p-4">${shoes.price}</td>
-                                        <td class="text-center align-middle px-0"><a href="#"
-                                                                                     class="shop-tooltip close float-none text-danger" title=""
-                                                                                     data-original-title="Remove">X</a></td>
+                                        <td class="text-right font-weight-semibold align-middle p-4"><fmt:formatNumber value="${shoes.price*shoes.amount}" pattern="$#,##0.00"/></td>
+                                        <td class="text-center align-middle px-0">
+                                            <input type="hidden" name="id" value="${shoes.shoeId}"/>
+                                            <button type="submit" name="op" value="delete">
+                                                X
+                                            </button>
+                                        </td>
+
                                     </tr>
-                                </c:forEach>
+                                </form>
+
+                            </c:forEach>
 
                             </tbody>
 
@@ -88,14 +95,14 @@
                     </div>
 
                     <!-- / Shopping cart table -->
-                    <div class="footer">
+                    <div class="container">
 
                         <div class="mt-4">
                         </div>
 
                         <div class="text-end mt-4">
 
-                            <label class="text-muted font-weight-normal m-0">Total price</label>
+                            <label class="text-muted fw-bold fs-5 m-0">Total price</label>
                             <div class="text-large"><strong>${shoes.price*shoes.amount}</strong></div>
 
                         </div>
@@ -106,10 +113,10 @@
                 <div class="container">
 
                     <div class="clearfix">
-                        <form action="">
-                            <button type="button" value="" class="btn btn-lg btn-dark float-start mt-2 mb-2">Want more !</button>
-                            <button type="button" value="op" class="btn btn-lg btn-dark float-end mt-2 mb-2">Wear now !</button>
-                        </form>
+
+                        <button name="" value="" type="button" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">Want more !</button>
+                        <button name="" value="" type="button" class="btn btn-lg btn-dark float-end mt-2 mb-2 button1">Wear now !</button>
+
                     </div>
 
                 </div>

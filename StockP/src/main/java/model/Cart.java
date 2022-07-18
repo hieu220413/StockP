@@ -28,4 +28,9 @@ public class Cart {
     public ArrayList<Shoes> getCartList() {
         return cartList;
     } 
+
+    public void setCartList(ArrayList<Shoes> cartList) {
+        this.cartList = cartList;
+    }
+       
 }

@@ -43,7 +43,7 @@
                         <div class="card-body p-0">
                             <div class="row p-5">
                                 <div class="col-md-6">
-                                    <form action="CartController">
+                                    <form action="<c:url value="/index.jsp"/>">
                                         <h2>Payment Successfully.</h2>
                                         <input type="submit" value="Back to homepage" name="op" style="border-radius: 10px ; background-color: rgba(rgb(22, 22, 22), green, blue, alpha); border-color: white;"/>
                                     </form>
@@ -93,8 +93,7 @@
                                                         <td>${shoes.size}</td>
                                                         <td><img src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:20%"></td>
                                                         <td>${shoes.amount}</td>
-                                                        <td><fmt:formatNumber type = "number" 
-         maxFractionDigits = "3" value = "${shoes.price * shoes.amount}" /></td>
+                                                        <td><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${shoes.price * shoes.amount}" /></td>
                                                     </tr>
                                                 </tbody>
                                             </c:forEach>

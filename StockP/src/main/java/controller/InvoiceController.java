@@ -66,10 +66,10 @@ public class InvoiceController extends HttpServlet {
 
     private void showDetail(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        String invoiceId = request.getParameter("invoiceId");
-        String customerId = request.getParameter("customerId");
+        String invoiceId = (String) request.getAttribute("invoiceId");
+        int customerId = (Integer) request.getAttribute("customerId");
         InvoiceManager manager = new InvoiceManager();
-        InvoiceDetail inD = manager.detail(invoiceId,Integer.valueOf(customerId));
+        InvoiceDetail inD = manager.detail(invoiceId,customerId);
         request.setAttribute("controller", "invoice");
         request.setAttribute("action", "index");
         request.setAttribute("invoiceDetail", inD);

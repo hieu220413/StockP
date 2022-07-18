@@ -6,17 +6,22 @@ package controller;
 
 import config.Config;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import manager.ShoesManager;
+import manager.InvoiceManager;
 import model.Cart;
+import model.Customers;
+import model.Invoice;
+import model.InvoiceDetail;
 import model.Shoes;
 
 /**
@@ -43,6 +48,56 @@ public class CartController extends HttpServlet {
         if (op != null) {
             if (op.equals("delete")) {
                 removeFromCart(request, response);
+            } else if (op.equals("addInvoice")) {
+                try {
+                    String[] shoesId = request.getParameterValues("id");
+                    String[] size = request.getParameterValues("size");
+                    String[] quantity = request.getParameterValues("quantity");
+                    String invoiceId = generateRandomChars();
+                    Float total_price = Float.valueOf(request.getParameter("total_price"));
+                    Date payDate = new Date(System.currentTimeMillis());
+
+                    HttpSession session = request.getSession();
+                    Customers customer = (Customers) session.getAttribute("LOGIN_CUSTOMER");
+                    if (customer == null) {
+                        request.setAttribute("controller", "user");
+                        request.setAttribute("action", "login");
+                        request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
+                        return;
+                    }
+                    InvoiceManager invoiceManager = new InvoiceManager();
+                    Invoice invoice = new Invoice();
+                    InvoiceDetail invoiceDetail = new InvoiceDetail();
+                    invoice.setInvoiceId(invoiceId);
+                    invoice.setDate(payDate);
+                    invoice.setTotalPrice(total_price);
+                    invoice.setCustomer(customer);
+                    invoiceDetail.setInvoice(invoice);
+                    Shoes shoe = null;
+                    ArrayList<Shoes> shoes = new ArrayList<>();
+                    for (int i = 0; i < shoesId.length; i++) {
+                        shoe = new Shoes();
+                        shoe.setShoeId(shoesId[i]);
+                        shoe.setAmount(Integer.valueOf(quantity[i]));
+                        shoe.setSize(Integer.valueOf(size[i]));
+                        shoes.add(shoe);
+                    }
+                    invoiceDetail.setShoe(shoes);
+                    if (invoiceManager.add(invoice, invoiceDetail)) {
+                        session = request.getSession();
+                        session.setAttribute("cart",null);
+                        request.setAttribute("controller", "invoice");
+                        request.setAttribute("action", "detail");
+                        request.setAttribute("invoiceId", invoiceId);
+                        request.setAttribute("customerId", customer.getCustomerId());
+                        request.getRequestDispatcher("/invoice").forward(request, response);
+                        return;
+                    }
+                } catch (SQLException ex) {
+                    request.setAttribute("controller", "error");
+                    request.setAttribute("action", "index");
+                    request.setAttribute("message", ex.getMessage());
+                }
             }
         }
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
@@ -63,6 +118,17 @@ public class CartController extends HttpServlet {
         }
         cart.setCartList(cartList);
         session.setAttribute("cart", cart);
+    }
+
+    private static String generateRandomChars() {
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvw";
+        for (int i = 0; i < 5; i++) {
+            sb.append(candidateChars.charAt(random.nextInt(candidateChars
+                    .length())));
+        }
+        return sb.toString();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

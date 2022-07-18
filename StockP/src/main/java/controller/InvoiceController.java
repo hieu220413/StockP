@@ -69,7 +69,7 @@ public class InvoiceController extends HttpServlet {
         String invoiceId = request.getParameter("invoiceId");
         String customerId = request.getParameter("customerId");
         InvoiceManager manager = new InvoiceManager();
-        InvoiceDetail inD = manager.detail(invoiceId, customerId);
+        InvoiceDetail inD = manager.detail(invoiceId,Integer.valueOf(customerId));
         request.setAttribute("controller", "invoice");
         request.setAttribute("action", "index");
         request.setAttribute("invoiceDetail", inD);

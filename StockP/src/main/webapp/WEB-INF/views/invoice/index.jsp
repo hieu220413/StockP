@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,8 @@
                                 </div>
 
                                 <div class="col-md-6 text-right">
-                                    <p class="font-weight-bold mb-1">Invoice #id</p>
+                                    <p class="font-weight-bold mb-1">Invoice #${invoiceDetail.invoice.invoiceId}</p>
+                                    <p class="font-weight-bold mb-1">Date: ${invoiceDetail.invoice.date}</p>
                                 </div>
                             </div>
 
@@ -58,12 +60,9 @@
                             <div class="row pb-5 p-5">
                                 <div class="col-md-6">
                                     <p class="font-weight-bold mb-4">Customer Information</p>
-                                    <p class="mb-1">Customer id</p>
-                                    <p>Customer name</p>
-                                    <p class="mb-1">Customer username</p>
-                                    <p class="mb-1">Customer gender</p>
-                                    <p class="mb-1">Address</p>
-                                    <p class="mb-1">Customer password</p>
+                                    <p class="mb-1">${LOGIN_CUSTOMER.customerId}</p>
+                                    <p>${LOGIN_CUSTOMER.name}</p>
+                                    <p class="mb-1">${LOGIN_CUSTOMER.address}</p>
                                 </div>
 
                                 <div class="col-md-6 text-right">
@@ -74,23 +73,28 @@
                             </div>
                             <div class="row p-5">
                                 <div class="col-md-12">
-                                    <c:if test="${not empty list}">
+                                    <c:if test="${not empty invoiceDetail.shoe}">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th class="">ID</th>
-                                                    <th class="">Date</th>
+                                                    <th class="">Shoes ID</th>
+                                                    <th class="">Name</th>
+                                                    <th class="">Size</th>
+                                                    <th class="">Image</th>
+                                                    <th class="">Quantity</th>
                                                     <th class="">Price</th>
-                                                    <th class="">Customer ID</th>
                                                 </tr>
                                             </thead>
-                                            <c:forEach var="invoice" items="${list}" varStatus="loop">
+                                            <c:forEach var="shoes" items="${invoiceDetail.shoe}" varStatus="loop">
                                                 <tbody>
                                                     <tr>
-                                                        <td>${invoice.invoiceid}</td>
-                                                        <td>${invoice.date}</td>
-                                                        <td>${invoice.totalprice}</td>
-                                                        <td>${invoice.customer}</td>
+                                                        <td>${shoes.shoeId}</td>
+                                                        <td>${shoes.name}</td>
+                                                        <td>${shoes.size}</td>
+                                                        <td><img src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:20%"></td>
+                                                        <td>${shoes.amount}</td>
+                                                        <td><fmt:formatNumber type = "number" 
+         maxFractionDigits = "3" value = "${shoes.price * shoes.amount}" /></td>
                                                     </tr>
                                                 </tbody>
                                             </c:forEach>
@@ -100,18 +104,8 @@
                             </div>
                             <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                                 <div class="py-3 px-5 text-right">
-                                    <div class="mb-2">Grand Total</div>
-                                    <div class="h2 font-weight-light">$</div>
-                                </div>
-
-                                <div class="py-3 px-5 text-right">
-                                    <div class="mb-2">Discount</div>
-                                    <div class="h2 font-weight-light">0%</div>
-                                </div>
-
-                                <div class="py-3 px-5 text-right">
-                                    <div class="mb-2">Sub - Total amount</div>
-                                    <div class="h2 font-weight-light">$</div>
+                                    <div class="mb-2">Total amount</div>
+                                    <div class="h2 font-weight-light">${invoiceDetail.invoice.totalPrice}$</div>
                                 </div>
                             </div>
                         </div>

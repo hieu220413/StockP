@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Customers;
-import sun.font.TrueTypeFont;
 import utils.DBUtil;
 
 /**
@@ -42,7 +41,7 @@ public class CustomersManager {
             while (rs.next()) {
                 if (rs.getString("customer_id") != null) {
                     cus = new Customers();
-                    cus.setCustomerId(rs.getString("customer_id"));
+                    cus.setCustomerId(rs.getInt("customer_id"));
                     cus.setName(rs.getString("name"));
                     cus.setUsername(rs.getString("username"));
                     cus.setGender(rs.getInt("gender"));

@@ -1,0 +1,17 @@
+model/Invoice.class
+controller/ShoesController.class
+manager/CustomersManager.class
+model/InvoiceDetail.class
+manager/InvoiceManager.class
+utils/DBUtil.class
+controller/FrontController.class
+controller/CartController.class
+model/Shoes.class
+controller/InvoiceController.class
+model/Cart.class
+manager/CategoryManager.class
+manager/ShoesManager.class
+controller/HomeController.class
+config/Config.class
+controller/CustomersController.class
+model/Customers.class

@@ -65,9 +65,6 @@
 
                             <c:if test="${sessionScope.LOGIN_CUSTOMER != null}">
                                 <li>
-                                    <a href="<c:url value="/invoice/detail.do?customerId=${LOGIN_CUSTOMER.customerId}&invoiceId=INVOICE1"/>">INVOICES</a>
-                                </li>
-                                <li>
                                     <a href="<c:url value="/user/logout.do"/>">LOG OUT</a>
                                 </li>
                             </c:if>

@@ -7,6 +7,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -142,11 +143,26 @@ public class ShoesController extends HttpServlet {
             cart = new Cart();
             //Luu cart vo session
             session.setAttribute("cart", cart);
+            cart.add(shoes);
         } else {
-
+            ArrayList<Shoes> cartList = cart.getCartList();
+            for (Shoes shoesExist : cartList) {
+                if (shoesExist.getShoeId().equals(shoes.getShoeId())) {
+                    if (shoesExist.getSize() == shoes.getSize()) {
+                        shoesExist.setAmount(shoes.getAmount() + shoesExist.getAmount());
+                    } else {
+                        cart.add(shoes);
+                        break;
+                    }
+                } else {
+                    cart.add(shoes);
+                    break;
+                }
+            }
+            cart.setCartList(cartList);
         }
         //Them product vao cart
-        cart.add(shoes);
+//        cart.add(shoes);
         session.setAttribute("cart", cart);
     }
 

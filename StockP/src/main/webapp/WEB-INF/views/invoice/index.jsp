@@ -94,7 +94,7 @@
                                                         <td><img src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:20%"></td>
                                                         <td>${shoes.amount}</td>
                                                         <td><fmt:formatNumber type = "number" 
-         maxFractionDigits = "3" value = "${shoes.price * shoes.amount}" /></td>
+         maxFractionDigits = "3" value = "${shoes.price * shoes.amount}" pattern="$#,##0.00" /></td>
                                                     </tr>
                                                 </tbody>
                                             </c:forEach>

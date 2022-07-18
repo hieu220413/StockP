@@ -45,7 +45,7 @@ CREATE TABLE invoice_detail(
 	size int
 	foreign key(shoes_id) references shoes(shoes_id),
 	foreign key(invoice_id) references invoice(invoice_id) ON DELETE CASCADE,
-	constraint pk_sh_in primary key(shoes_id,invoice_id)
+	constraint pk_sh_in primary key(shoes_id,invoice_id,size)
 );
 
 USE ASSIGNMENT_PRJ301

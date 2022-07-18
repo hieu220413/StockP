@@ -148,13 +148,18 @@ public class ShoesController extends HttpServlet {
             ArrayList<Shoes> cartList = cart.getCartList();
             for (Shoes shoesExist : cartList) {
                 if (shoesExist.getShoeId().equals(shoes.getShoeId())) {
-                    shoesExist.setAmount(shoes.getAmount() + shoesExist.getAmount());
+                    if (shoesExist.getSize() == shoes.getSize()) {
+                        shoesExist.setAmount(shoes.getAmount() + shoesExist.getAmount());
+                    } else {
+                        cart.add(shoes);
+                        break;
+                    }
                 } else {
                     cart.add(shoes);
                     break;
                 }
             }
-            cart.setCartList(cartList);     
+            cart.setCartList(cartList);
         }
         //Them product vao cart
 //        cart.add(shoes);

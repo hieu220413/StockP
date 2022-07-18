@@ -35,13 +35,13 @@ public class CartController extends HttpServlet {
             throws ServletException, IOException {
         String action = (String) request.getAttribute("action");
         String controller = (String) request.getAttribute("controller");
-        String op = request.getParameter("op");
-        switch (op) {
-            case "Delete": {
-
-            }
-            break;
-        }
+//        String op = request.getParameter("op");
+//        switch (op) {
+//            case "Delete": {
+//
+//            }
+//            break;
+//        }
         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
     }
 

@@ -94,14 +94,14 @@
                     </div>
 
                     <!-- / Shopping cart table -->
-                    <div class="footer">
+                    <div class="container">
 
                         <div class="mt-4">
                         </div>
 
                         <div class="text-end mt-4">
 
-                            <label class="text-muted font-weight-normal m-0">Total price</label>
+                            <label class="text-muted fw-bold fs-5 m-0">Total price</label>
                             <div class="text-large"><strong>${shoes.price*shoes.amount}</strong></div>
 
                         </div>
@@ -113,8 +113,8 @@
 
                     <div class="clearfix">
 
-                        <button type="button" class="btn btn-lg btn-dark float-start mt-2 mb-2">Want more !</button>
-                        <button type="button" class="btn btn-lg btn-dark float-end mt-2 mb-2">Wear now !</button>
+                        <button name="" value="" type="button" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">Want more !</button>
+                        <button name="" value="" type="button" class="btn btn-lg btn-dark float-end mt-2 mb-2 button1">Wear now !</button>
 
                     </div>
 

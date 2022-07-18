@@ -40,7 +40,9 @@ CREATE TABLE invoice(
 
 CREATE TABLE invoice_detail(
 	shoes_id varchar(5),
-	invoice_id varchar(10)
+	invoice_id varchar(10),
+	quantity int,
+	size int
 	foreign key(shoes_id) references shoes(shoes_id),
 	foreign key(invoice_id) references invoice(invoice_id) ON DELETE CASCADE,
 	constraint pk_sh_in primary key(shoes_id,invoice_id)
@@ -61,7 +63,7 @@ INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0003
 INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0004','Nike LeBron 17 Promise','img4.jpg',184.78,'BAE',20);
 INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0005','Nike LeBron 17 MTAA','img5.jpg',215.22,'BAE',20);
 INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0006','Nike LeBron 17 Currency','img6.jpg',171.74,'BAE',20);
-INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0007','Nike Kyrie Flytrap 5 “SUMMIT VOLT”','img7.jpg',120.0,'BAE',20);
+INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0007','Nike Kyrie Flytrap 5 ï¿½SUMMIT VOLTï¿½','img7.jpg',120.0,'BAE',20);
 INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0008','Nike Kyrie 7 Icon of Sport','img8.jpg',258.7,'BAE',20);
 INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0009','Nike KD 15 Brooklyn Nets','img9.jpg',149.0,'BAE',20);
 INSERT INTO shoes(shoes_id, name, img, price, category_id, amount) VALUES('B0010','Nike KD 12 Aunt Pearl','img10.jpg',409.0,'BAE',20);

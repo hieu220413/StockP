@@ -55,6 +55,7 @@
 
                             <tbody>
                                 <c:set var="total" value="0"></c:set>
+                                <c:set var="shoes" value="0"></c:set>
                                 <c:forEach var="shoes" items="${cart.cartList}" varStatus="loop">
                                 <form action="<c:url value="/cart/index.do"/>">
                                     <tr>
@@ -110,10 +111,22 @@
                 </div>
 
                 <div class="container">
-
+                    <span style="display: none">
+                        <form id="cart" action="<c:url value="/cart/index.do"/>">
+                            <c:set var="total1" value="0"></c:set>
+                            <c:forEach var="shoes" items="${cart.cartList}" varStatus="loop">
+                                <input type="hidden" name="size" value="${shoes.size}"/>
+                                <input type="hidden" name="quantity" value="${shoes.amount}"/>
+                                <fmt:formatNumber var="p" value="${shoes.price*shoes.amount}" pattern="$#,##0.00"/>
+                                <input type="hidden" name="id" value="${shoes.shoeId}"/>
+                                <c:set var="total1" value="${total1 + (shoes.price*shoes.amount)}"></c:set>
+                            </c:forEach>
+                                <input type="hidden" name="total_price" value="${total}"/>
+                        </form>
+                    </span>
                     <div class="clearfix">
-                        <button name="" value="" type="button" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">Want more !</button>
-                        <button name="" value="" type="button" class="btn btn-lg btn-dark float-end mt-2 mb-2 button1">Wear now !</button>
+                        <button  name="" value="" type="submit" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">Want more !</button>
+                        <button form="cart"  name="op" value="addInvoice" type="submit" class="btn btn-lg btn-dark float-end mt-2 mb-2 button1">Wear now !</button>
 
                     </div>
 

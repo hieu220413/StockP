@@ -60,9 +60,9 @@
                             <div class="row pb-5 p-5">
                                 <div class="col-md-6">
                                     <p class="font-weight-bold mb-4">Customer Information</p>
-                                    <p class="mb-1">${LOGIN_CUSTOMER.customerId}</p>
-                                    <p>${LOGIN_CUSTOMER.name}</p>
-                                    <p class="mb-1">${LOGIN_CUSTOMER.address}</p>
+                                    <p class="mb-1"><span class="text-muted">Customer id: </span>${LOGIN_CUSTOMER.customerId}</p>
+                                    <p class="mb-1"><span class="text-muted">Full Name: </span>${LOGIN_CUSTOMER.name}</p>
+                                    <p class="mb-1"><span class="text-muted">Address: </span> ${LOGIN_CUSTOMER.address}</p>
                                 </div>
 
                                 <div class="col-md-6 text-right">

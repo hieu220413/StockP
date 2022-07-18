@@ -54,7 +54,7 @@
                             </thead>
 
                             <tbody>
-
+                                <c:set var="total" value="0"></c:set>
                                 <c:forEach var="shoes" items="${cart.cartList}" varStatus="loop">
                                 <form action="<c:url value="/cart/index.do"/>">
                                     <tr>
@@ -73,18 +73,17 @@
                                             </div>
                                         </td>
                                         <td class="text-right font-weight-semibold align-middle p-4">${shoes.size}</td>
-                                        <td class="align-middle p-4"><input type="text" class="form-control text-center"
-                                                                            value="${shoes.amount}"></td>
+                                        <td class="align-middle p-4">${shoes.amount}</td>
                                         <td class="text-right font-weight-semibold align-middle p-4"><fmt:formatNumber value="${shoes.price*shoes.amount}" pattern="$#,##0.00"/></td>
                                         <td class="text-center align-middle px-0">
                                             <input type="hidden" name="id" value="${shoes.shoeId}"/>
-                                            <button type="submit" name="op" value="delete">
+                                            <button class="btn btn-danger" type="submit" name="op" value="delete" >
                                                 X
                                             </button>
                                         </td>
-
-                                    </tr>
-                                </form>
+                                        <c:set var="total" value="${total + shoes.price*shoes.amount}"></c:set>
+                                        </tr>
+                                    </form>
 
                             </c:forEach>
 
@@ -103,7 +102,7 @@
                         <div class="text-end mt-4">
 
                             <label class="text-muted fw-bold fs-5 m-0">Total price</label>
-                            <div class="text-large"><strong>${shoes.price*shoes.amount}</strong></div>
+                            <div class="text-large"><strong><fmt:formatNumber value="${total}" pattern="$#,##0.00"/></strong></div>
 
                         </div>
                     </div>
@@ -113,7 +112,6 @@
                 <div class="container">
 
                     <div class="clearfix">
-
                         <button name="" value="" type="button" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">Want more !</button>
                         <button name="" value="" type="button" class="btn btn-lg btn-dark float-end mt-2 mb-2 button1">Wear now !</button>
 

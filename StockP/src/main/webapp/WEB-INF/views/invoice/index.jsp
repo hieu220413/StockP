@@ -69,7 +69,7 @@
                                 <div class="col-md-6 text-right">
                                     <p class="font-weight-bold mb-4">Payment Details</p>
                                     <p class="mb-1"><span class="text-muted">Payment Type: </span> Cash</p>
-                                    <p class="mb-1"><span class="text-muted">Name: </span> Customer name</p>
+                                    <p class="mb-1"><span class="text-muted">Name: </span> ${LOGIN_CUSTOMER.name}</p>
                                 </div>
                             </div>
                             <div class="row p-5">

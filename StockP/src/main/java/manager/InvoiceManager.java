@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import model.Customers;
 import model.Invoice;
+import model.InvoiceDetail;
 import model.Shoes;
 import utils.DBUtil;
 
@@ -56,21 +57,37 @@ public class InvoiceManager {
     }
     
     //not done
-    public HashMap<Invoice,List> detail(String invoiceId,String customerId) throws SQLException{
+    public InvoiceDetail detail(String invoiceId,String customerId) throws SQLException{
         ArrayList<Shoes> list = new ArrayList<>();
         HashMap<Invoice,List> invoiceD = new HashMap<>();        
         Connection con = DBUtil.getConnection();
+        Shoes shoes = null;
+        Invoice invoice = null;
+        InvoiceDetail invoiceDetail = new InvoiceDetail();
         if (con != null) {
             PreparedStatement ps = con.prepareStatement(SELECT_ONE);
             ps.setString(1, invoiceId);
             ps.setString(2, customerId);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-               Shoes shoes = new Shoes();
-               shoes.setImg(rs.getString("image"));
-               shoes.setPrice(rs.getFloat(SELECT_ALL));
+            if(rs.next()){
+                invoice = new Invoice();
+                invoice.setInvoiceId(invoiceId);
+                invoice.setTotalPrice(rs.getFloat("all_total_price"));
+                invoice.setDate(rs.getDate("date"));
+                invoice.setCustomer(new Customers(customerId));
+                invoiceDetail.setInvoice(invoice);
             }
+            while(rs.next()){
+               shoes = new Shoes();
+               shoes.setName(rs.getString("name"));
+               shoes.setImg(rs.getString("image"));
+               shoes.setPrice(rs.getFloat("price"));
+               shoes.setCategoryId(rs.getString("category_id"));
+               //thieu quantity voi size 
+               list.add(shoes);
+            }
+            invoiceDetail.setShoe(list);
         }
-        return invoiceD;
+        return invoiceDetail;
     } 
 }

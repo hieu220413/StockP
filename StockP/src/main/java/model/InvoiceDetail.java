@@ -4,18 +4,20 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author nguye
  */
 public class InvoiceDetail {
     private Invoice invoice;
-    private Shoes shoe;
+    private List<Shoes> shoe;
 
     public InvoiceDetail() {
     }
 
-    public InvoiceDetail(Invoice invoice, Shoes shoe) {
+    public InvoiceDetail(Invoice invoice, List<Shoes> shoe) {
         this.invoice = invoice;
         this.shoe = shoe;
     }
@@ -28,11 +30,11 @@ public class InvoiceDetail {
         this.invoice = invoice;
     }
 
-    public Shoes getShoe() {
+    public List<Shoes> getShoe() {
         return shoe;
     }
 
-    public void setShoe(Shoes shoe) {
+    public void setShoe(List<Shoes> shoe) {
         this.shoe = shoe;
     }
     

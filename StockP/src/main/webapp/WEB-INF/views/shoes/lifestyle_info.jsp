@@ -26,18 +26,22 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">       
-        <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet" type="text/css"/>
+        <link href="<c:url value="/html/styleindex.css" />" rel="stylesheet">
         <link rel="stylesheet" href="<c:url value="/css/button.css"/>">
         <script>
             function checkSize() {
                 var x = document.getElementById("sell").value;
                 document.getElementById("size").innerHTML = x;
             }
+            function checkQuantity() {
+                var x = document.getElementById("qtn").value;
+                document.getElementById("quantity").innerHTML = x;
+            }
         </script>
-        <title>Lifestyle Shoes Page</title>
+        <title>Basketball Shoes Page</title>
     </head>
     <body>
-        <form action="<c:url value="/shoes/lifestyle_info.do?op=search"/>">
+        <form action="<c:url value="/shoes/basketball_info.do"/>">
             <div style="width: 100vw; display: flex; align-items: center; justify-content: right;" class="container">
                 <div>
                     <input type="text" placeholder="Search" class="search" name="searchText" value="${searchText}">
@@ -66,6 +70,22 @@
                                         <label for="sel1" class="form-label">Select size (US):</label>
                                     </div>
                                     <br/>
+                                    <div class="form-floating">
+                                        <select class="form-select" id="qtn" name="quantity">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Quantity:</label>
+                                    </div>
+                                    <br/>
                                     <input type="hidden" name="id" value="${shoes.shoeId}"/>
 <!--                                    <input type="hidden" id="size" name="size" value="${shoes.size}"/>-->
                                     <button type="submit" onclick="checkSize()" name="op" value="addToCart" class="btn btn-dark">Add to Cart</button>
@@ -76,6 +96,6 @@
                     </div>
                 </c:forEach> 
             </div>   
-        </div>       
+        </div>
     </body>
 </html>

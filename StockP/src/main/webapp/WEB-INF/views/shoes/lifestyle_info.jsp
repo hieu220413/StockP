@@ -52,6 +52,9 @@
         <br/>
         <div style="width: 100vw " class="container">
             <div class="row">
+                <c:if test="${empty list}">
+                    <i>No products are available</i>
+                </c:if>
                 <c:forEach var="shoes" items="${list}">
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <form action="<c:url value="/shoes/lifestyle_info.do"/>">

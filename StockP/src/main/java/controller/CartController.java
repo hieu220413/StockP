@@ -53,10 +53,10 @@ public class CartController extends HttpServlet {
                     String[] shoesId = request.getParameterValues("id");
                     String[] size = request.getParameterValues("size");
                     String[] quantity = request.getParameterValues("quantity");
-                    String invoiceId = generateRandomChars();
+                    String invoiceId ="IV" + generateRandomChars();
                     Float total_price = Float.valueOf(request.getParameter("total_price"));
                     Date payDate = new Date(System.currentTimeMillis());
-
+                    //check session
                     HttpSession session = request.getSession();
                     Customers customer = (Customers) session.getAttribute("LOGIN_CUSTOMER");
                     if (customer == null) {
@@ -65,13 +65,15 @@ public class CartController extends HttpServlet {
                         request.getRequestDispatcher(Config.LAYOUT).forward(request, response);
                         return;
                     }
+                    
+                    //create invoice
                     InvoiceManager invoiceManager = new InvoiceManager();
                     Invoice invoice = new Invoice();
-                    InvoiceDetail invoiceDetail = new InvoiceDetail();
                     invoice.setInvoiceId(invoiceId);
                     invoice.setDate(payDate);
                     invoice.setTotalPrice(total_price);
                     invoice.setCustomer(customer);
+                    InvoiceDetail invoiceDetail = new InvoiceDetail();
                     invoiceDetail.setInvoice(invoice);
                     Shoes shoe = null;
                     ArrayList<Shoes> shoes = new ArrayList<>();

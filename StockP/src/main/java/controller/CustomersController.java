@@ -117,10 +117,8 @@ public class CustomersController extends HttpServlet {
                 if (password.matches(pattern)) {
                     Customers cus = new Customers(fullname, username, password, gender, address);
                     if (cusManager.register(cus)) {
-                        HttpSession session = request.getSession();
-                        session.setAttribute("LOGIN_CUSTOMER", cus);
-                        request.setAttribute("controller", "home");
-                        request.setAttribute("action", "index");
+                        request.setAttribute("controller","user");
+                        request.setAttribute("action","login");
                     }
                 } else {
                     request.setAttribute("fullname", fullname);
@@ -130,7 +128,7 @@ public class CustomersController extends HttpServlet {
                     request.setAttribute("Cpw", confirmPw);
                     request.setAttribute("controller", "user");
                     request.setAttribute("action", "register");
-                    request.setAttribute("messagePW", "password must contain at least 8 letters with lower,upper letter and special digit!");
+                    request.setAttribute("messagePW", "password must contain at least 8 letters with lower,upper letter and a special digit!");
                 }
             } else {
                 request.setAttribute("fullname", fullname);
@@ -140,7 +138,7 @@ public class CustomersController extends HttpServlet {
                 request.setAttribute("Cpw", confirmPw);
                 request.setAttribute("controller", "user");
                 request.setAttribute("action", "register");
-                request.setAttribute("messagePW", "password confirmed doesn't match!");
+                request.setAttribute("messagePW", "Confirm password doesn't match!");
             }
         } catch (SQLException ex) {
             request.setAttribute("controller", "error");

@@ -121,11 +121,13 @@
                                 <input type="hidden" name="id" value="${shoes.shoeId}"/>
                                 <c:set var="total1" value="${total1 + (shoes.price*shoes.amount)}"></c:set>
                             </c:forEach>
-                                <input type="hidden" name="total_price" value="${total}"/>
+                            <input type="hidden" name="total_price" value="${total}"/>
                         </form>
                     </span>
                     <div class="clearfix">
-                        <button  name="" value="" type="submit" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">Want more !</button>
+                        <button  name="" value="" type="submit" class="btn btn-lg btn-dark float-start mt-2 mb-2 button1">
+                            <a style="text-decoration: none; color: white;" href="<c:url value="/home/index.do"/>">Want more !</a>
+                        </button>                       
                         <button form="cart"  name="op" value="addInvoice" type="submit" class="btn btn-lg btn-dark float-end mt-2 mb-2 button1">Wear now !</button>
 
                     </div>

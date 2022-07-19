@@ -85,9 +85,13 @@ public class CartController extends HttpServlet {
                         shoes.add(shoe);
                     }
                     invoiceDetail.setShoe(shoes);
+                    
                     if (invoiceManager.add(invoice, invoiceDetail)) {
+                        //clear cart
                         session = request.getSession();
                         session.setAttribute("cart",null);
+                        
+                        //forward to invoiceController
                         request.setAttribute("controller", "invoice");
                         request.setAttribute("action", "detail");
                         request.setAttribute("invoiceId", invoiceId);

@@ -90,7 +90,7 @@
                                                                     <td>${shoes.shoeId}</td>
                                                                     <td>${shoes.name}</td>
                                                                     <td>${shoes.size}</td>
-                                                                    <td><img src="<c:url value=" /image/${shoes.img} "/>" alt="Card image" style="width:20%"></td>
+                                                                    <td><img src="<c:url value="/image/${shoes.img}"/>" alt="Card image" style="width:20%"></td>
                                                                     <td>${shoes.amount}</td>
 
                                                                     <td>

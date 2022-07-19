@@ -132,11 +132,13 @@ public class ShoesController extends HttpServlet {
         Shoes shoes = sm.find(id);
         shoes.setSize(size);
         shoes.setAmount(quantity);
+        
         HttpSession session = request.getSession();
         if (session.getAttribute("LOGIN_CUSTOMER") == null) {
             request.setAttribute("controller", "user");
             request.setAttribute("action", "login");
         }
+        
         Cart cart = (Cart) session.getAttribute("cart");
         //Neu trong session chua co cart thi tao cart moi
         if (cart == null) {
